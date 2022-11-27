@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/MadCalc/obj/Debug
+/.vs/MadCalc
+/MadCalc/bin/Debug
