@@ -32,36 +32,36 @@
             this.uiStatusStrip = new System.Windows.Forms.StatusStrip();
             this.uiMainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uiMainToolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.uiTabControl = new System.Windows.Forms.TabControl();
             this.uiTabPageMechanizm = new System.Windows.Forms.TabPage();
-            this.uiTabPageDriver = new System.Windows.Forms.TabPage();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uiUpDownOilConsumption = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.uiUpDownFuelConsumption = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.uiComboBoxMechType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.uiTabPagePath = new System.Windows.Forms.TabPage();
+            this.uiTabPageDriver = new System.Windows.Forms.TabPage();
             this.uiTabPageExpluatation = new System.Windows.Forms.TabPage();
             this.uiTabPageAmmortization = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.uiComboBoxMechType = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.uiUpDownFuelConsumption = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.uiUpDownOilConsumption = new System.Windows.Forms.NumericUpDown();
             this.uiMainMenuStrip.SuspendLayout();
             this.uiMainToolStrip.SuspendLayout();
             this.uiTabControl.SuspendLayout();
             this.uiTabPageMechanizm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uiUpDownFuelConsumption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiUpDownOilConsumption)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiUpDownFuelConsumption)).BeginInit();
             this.SuspendLayout();
             // 
             // uiStatusStrip
             // 
-            this.uiStatusStrip.Location = new System.Drawing.Point(0, 751);
+            this.uiStatusStrip.Location = new System.Drawing.Point(0, 539);
             this.uiStatusStrip.Name = "uiStatusStrip";
-            this.uiStatusStrip.Size = new System.Drawing.Size(1130, 22);
+            this.uiStatusStrip.Size = new System.Drawing.Size(784, 22);
             this.uiStatusStrip.TabIndex = 0;
             this.uiStatusStrip.Text = "statusStrip1";
             // 
@@ -72,7 +72,7 @@
             this.viewToolStripMenuItem});
             this.uiMainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.uiMainMenuStrip.Name = "uiMainMenuStrip";
-            this.uiMainMenuStrip.Size = new System.Drawing.Size(1130, 24);
+            this.uiMainMenuStrip.Size = new System.Drawing.Size(784, 24);
             this.uiMainMenuStrip.TabIndex = 1;
             this.uiMainMenuStrip.Text = "menuStrip1";
             // 
@@ -82,6 +82,12 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
             // uiMainToolStrip
             // 
             this.uiMainToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -90,7 +96,7 @@
             this.toolStripButton3});
             this.uiMainToolStrip.Location = new System.Drawing.Point(0, 24);
             this.uiMainToolStrip.Name = "uiMainToolStrip";
-            this.uiMainToolStrip.Size = new System.Drawing.Size(1130, 25);
+            this.uiMainToolStrip.Size = new System.Drawing.Size(784, 25);
             this.uiMainToolStrip.TabIndex = 2;
             this.uiMainToolStrip.Text = "toolStrip1";
             // 
@@ -134,7 +140,7 @@
             this.uiTabControl.Multiline = true;
             this.uiTabControl.Name = "uiTabControl";
             this.uiTabControl.SelectedIndex = 0;
-            this.uiTabControl.Size = new System.Drawing.Size(1130, 702);
+            this.uiTabControl.Size = new System.Drawing.Size(784, 490);
             this.uiTabControl.TabIndex = 3;
             // 
             // uiTabPageMechanizm
@@ -149,114 +155,10 @@
             this.uiTabPageMechanizm.Location = new System.Drawing.Point(4, 25);
             this.uiTabPageMechanizm.Name = "uiTabPageMechanizm";
             this.uiTabPageMechanizm.Padding = new System.Windows.Forms.Padding(3);
-            this.uiTabPageMechanizm.Size = new System.Drawing.Size(1122, 673);
+            this.uiTabPageMechanizm.Size = new System.Drawing.Size(776, 461);
             this.uiTabPageMechanizm.TabIndex = 0;
-            this.uiTabPageMechanizm.Text = "Механизм";
+            this.uiTabPageMechanizm.Text = "Транспорт";
             this.uiTabPageMechanizm.UseVisualStyleBackColor = true;
-            // 
-            // uiTabPageDriver
-            // 
-            this.uiTabPageDriver.Location = new System.Drawing.Point(4, 25);
-            this.uiTabPageDriver.Name = "uiTabPageDriver";
-            this.uiTabPageDriver.Padding = new System.Windows.Forms.Padding(3);
-            this.uiTabPageDriver.Size = new System.Drawing.Size(1122, 673);
-            this.uiTabPageDriver.TabIndex = 1;
-            this.uiTabPageDriver.Text = "Шофёр";
-            this.uiTabPageDriver.UseVisualStyleBackColor = true;
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.viewToolStripMenuItem.Text = "View";
-            // 
-            // uiTabPagePath
-            // 
-            this.uiTabPagePath.Location = new System.Drawing.Point(4, 25);
-            this.uiTabPagePath.Name = "uiTabPagePath";
-            this.uiTabPagePath.Size = new System.Drawing.Size(1122, 673);
-            this.uiTabPagePath.TabIndex = 2;
-            this.uiTabPagePath.Text = "Маршрут";
-            this.uiTabPagePath.UseVisualStyleBackColor = true;
-            // 
-            // uiTabPageExpluatation
-            // 
-            this.uiTabPageExpluatation.Location = new System.Drawing.Point(4, 25);
-            this.uiTabPageExpluatation.Name = "uiTabPageExpluatation";
-            this.uiTabPageExpluatation.Size = new System.Drawing.Size(1122, 673);
-            this.uiTabPageExpluatation.TabIndex = 3;
-            this.uiTabPageExpluatation.Text = "Эксплуатация";
-            this.uiTabPageExpluatation.UseVisualStyleBackColor = true;
-            // 
-            // uiTabPageAmmortization
-            // 
-            this.uiTabPageAmmortization.Location = new System.Drawing.Point(4, 25);
-            this.uiTabPageAmmortization.Name = "uiTabPageAmmortization";
-            this.uiTabPageAmmortization.Size = new System.Drawing.Size(1122, 673);
-            this.uiTabPageAmmortization.TabIndex = 4;
-            this.uiTabPageAmmortization.Text = "Аммортизация";
-            this.uiTabPageAmmortization.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Тип Механизма";
-            // 
-            // uiComboBoxMechType
-            // 
-            this.uiComboBoxMechType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.uiComboBoxMechType.FormattingEnabled = true;
-            this.uiComboBoxMechType.Items.AddRange(new object[] {
-            "Машина",
-            "Трактор"});
-            this.uiComboBoxMechType.Location = new System.Drawing.Point(11, 42);
-            this.uiComboBoxMechType.Name = "uiComboBoxMechType";
-            this.uiComboBoxMechType.Size = new System.Drawing.Size(144, 24);
-            this.uiComboBoxMechType.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Расход горючего (на 100Км)";
-            // 
-            // uiUpDownFuelConsumption
-            // 
-            this.uiUpDownFuelConsumption.Location = new System.Drawing.Point(11, 89);
-            this.uiUpDownFuelConsumption.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.uiUpDownFuelConsumption.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.uiUpDownFuelConsumption.Name = "uiUpDownFuelConsumption";
-            this.uiUpDownFuelConsumption.Size = new System.Drawing.Size(144, 23);
-            this.uiUpDownFuelConsumption.TabIndex = 3;
-            this.uiUpDownFuelConsumption.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 115);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Расход масла (на 100Км)";
             // 
             // uiUpDownOilConsumption
             // 
@@ -280,11 +182,109 @@
             0,
             0});
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 115);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(174, 17);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Расход масла (на 100Км)";
+            // 
+            // uiUpDownFuelConsumption
+            // 
+            this.uiUpDownFuelConsumption.Location = new System.Drawing.Point(11, 89);
+            this.uiUpDownFuelConsumption.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.uiUpDownFuelConsumption.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.uiUpDownFuelConsumption.Name = "uiUpDownFuelConsumption";
+            this.uiUpDownFuelConsumption.Size = new System.Drawing.Size(144, 23);
+            this.uiUpDownFuelConsumption.TabIndex = 3;
+            this.uiUpDownFuelConsumption.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(194, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Расход горючего (на 100Км)";
+            // 
+            // uiComboBoxMechType
+            // 
+            this.uiComboBoxMechType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uiComboBoxMechType.FormattingEnabled = true;
+            this.uiComboBoxMechType.Items.AddRange(new object[] {
+            "Машина",
+            "Трактор"});
+            this.uiComboBoxMechType.Location = new System.Drawing.Point(11, 42);
+            this.uiComboBoxMechType.Name = "uiComboBoxMechType";
+            this.uiComboBoxMechType.Size = new System.Drawing.Size(144, 24);
+            this.uiComboBoxMechType.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Тип Механизма";
+            // 
+            // uiTabPagePath
+            // 
+            this.uiTabPagePath.Location = new System.Drawing.Point(4, 25);
+            this.uiTabPagePath.Name = "uiTabPagePath";
+            this.uiTabPagePath.Size = new System.Drawing.Size(1122, 673);
+            this.uiTabPagePath.TabIndex = 2;
+            this.uiTabPagePath.Text = "Маршрут";
+            this.uiTabPagePath.UseVisualStyleBackColor = true;
+            // 
+            // uiTabPageDriver
+            // 
+            this.uiTabPageDriver.Location = new System.Drawing.Point(4, 25);
+            this.uiTabPageDriver.Name = "uiTabPageDriver";
+            this.uiTabPageDriver.Padding = new System.Windows.Forms.Padding(3);
+            this.uiTabPageDriver.Size = new System.Drawing.Size(1122, 673);
+            this.uiTabPageDriver.TabIndex = 1;
+            this.uiTabPageDriver.Text = "Шофёр";
+            this.uiTabPageDriver.UseVisualStyleBackColor = true;
+            // 
+            // uiTabPageExpluatation
+            // 
+            this.uiTabPageExpluatation.Location = new System.Drawing.Point(4, 25);
+            this.uiTabPageExpluatation.Name = "uiTabPageExpluatation";
+            this.uiTabPageExpluatation.Size = new System.Drawing.Size(1122, 673);
+            this.uiTabPageExpluatation.TabIndex = 3;
+            this.uiTabPageExpluatation.Text = "Эксплуатация";
+            this.uiTabPageExpluatation.UseVisualStyleBackColor = true;
+            // 
+            // uiTabPageAmmortization
+            // 
+            this.uiTabPageAmmortization.Location = new System.Drawing.Point(4, 25);
+            this.uiTabPageAmmortization.Name = "uiTabPageAmmortization";
+            this.uiTabPageAmmortization.Size = new System.Drawing.Size(1122, 673);
+            this.uiTabPageAmmortization.TabIndex = 4;
+            this.uiTabPageAmmortization.Text = "Аммортизация";
+            this.uiTabPageAmmortization.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1130, 773);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.uiTabControl);
             this.Controls.Add(this.uiMainToolStrip);
             this.Controls.Add(this.uiStatusStrip);
@@ -300,8 +300,8 @@
             this.uiTabControl.ResumeLayout(false);
             this.uiTabPageMechanizm.ResumeLayout(false);
             this.uiTabPageMechanizm.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uiUpDownFuelConsumption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiUpDownOilConsumption)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiUpDownFuelConsumption)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
