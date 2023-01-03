@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace MadCalc
 {
+    // TODO: neutral floats (comma\dot) parsing!
+
     public partial class MainForm : Form
     {
         public class Wheel
@@ -21,6 +23,20 @@ namespace MadCalc
             public float Cost { get; set; }
             [DisplayName("Дата")]
             public DateTime Date { get; set; } // no more than current date
+        }
+
+        public class Driver // todo: check drivers are less or eq to carrs count
+        {
+            [DisplayName("Надбавка за стаж")]
+            public uint ExpirienceAdd { get; set; }
+            [DisplayName("Надбавка за класс")]
+            public uint ClassAdd { get; set; }
+        }
+
+        public class SpareParts // todo: check no more than cars
+        {
+            [DisplayName("Стоимость запасных частей")]
+            public float Price { get; set;}
         }
 
         public MainForm()
@@ -37,9 +53,15 @@ namespace MadCalc
             uiComboBoxMechModel.SelectedIndex = 0;
 
             uiWheelsGrid.DataSource = _wheels;
-
             _wheels.ListChanged += OnWheelsListChanged;
-            // _wheels.AddingNew += OnWheelsAddingNew;
+
+            uiDriversGrid.DataSource = _drivers;
+            _drivers.ListChanged += OnDriversListChanged;
+
+            uiSparePartsGrid.DataSource = _spareParts;
+            _spareParts.ListChanged += OnSparePartsListChanged;
+
+            uiOilConsumtionTotal.Text = (float.Parse(uiFuelConsumption100.Text) * GetOilCOnsumptionPercent()).ToString();
         }
 
         private void uiComboBoxMechType_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,19 +89,24 @@ namespace MadCalc
                 {
                     UpdateCoursesReport(dlg.Courses);
                     UpdateTransportReport(dlg.Courses);
+                    UpdateWheelsReport(dlg.Courses);
+                    UpdateDriverReport(dlg.Courses);
+                    UpdateSparePartsReport(dlg.Courses);
+                    UpdateCarCheckReport(dlg.Courses);
                 }
             }
         }
 
         private void UpdateCoursesReport(IEnumerable<int> courses)
         {
-            var fuelFactor = GetFuelFactor();
+            // var fuelFactor = GetFuelFactor();
 
             foreach (var course in courses)
             {
                 var distance = course;
                 var numberOfTrips = CalcNumberOfTrips(distance, out var hours);
                 var totalLength = numberOfTrips * 2 * distance;
+                /*
                 var totalCargo = numberOfTrips * uiUpDownCargoCapacity.Value;
                 var totalFuel = totalLength * GetFuelConsumption1km();
 
@@ -91,15 +118,17 @@ namespace MadCalc
                 var totalOil = totalFuel * GetOilCOnsumptionPercent(); //GetOilConsumption(totalLength);
                 var totalFuelPrice = totalFuel * float.Parse(uiFuelPrice.Text);
                 var totalOilPrice = totalOil * float.Parse(uiOilPrice.Text);
-                var wheelsAmortization = float.Parse(uiWheelSpendings.Text) / float.Parse(uiWheelKms.Text) / (float)uiCarCountUd.Value * totalLength;
+                var wheelsAmortization = float.Parse(uiWheelsSpendingsText.Text) / float.Parse(uiWheelKms.Text) / (float)uiCarCountUd.Value * totalLength;
                 var carAmmortization = hours * float.Parse(uiAmmortizationPerHour.Text);
-
-                // todo: uiWheelKms.Text - check for 0
+                */
 
                 var item = new ListViewItem(distance.ToString());
 
                 item.SubItems.Add(numberOfTrips.ToString());
                 item.SubItems.Add(totalLength.ToString());
+                item.SubItems.Add(hours.ToString());
+
+                /*
                 item.SubItems.Add(totalCargo.ToString());
                 item.SubItems.Add(totalFuel.ToString());
                 item.SubItems.Add(totalOil.ToString());
@@ -107,7 +136,7 @@ namespace MadCalc
                 item.SubItems.Add(totalOilPrice.ToString());
                 item.SubItems.Add(wheelsAmortization.ToString());
                 item.SubItems.Add(carAmmortization.ToString());
-                item.SubItems.Add(hours.ToString());
+                */
 
                 uiCourses.Items.Add(item);
             }
@@ -133,18 +162,142 @@ namespace MadCalc
                 var totalOil = totalFuel * GetOilCOnsumptionPercent();
                 var totalFuelPrice = totalFuel * float.Parse(uiFuelPrice.Text);
                 var totalOilPrice = totalOil * float.Parse(uiOilPrice.Text);
+                var carAmmortization = hours * float.Parse(uiAmmortizationPerHour.Text);
 
                 var item = new ListViewItem(distance.ToString());
 
                 item.SubItems.Add(numberOfTrips.ToString());
                 item.SubItems.Add(totalLength.ToString());
+                item.SubItems.Add(hours.ToString());
                 item.SubItems.Add(totalCargo.ToString());
                 item.SubItems.Add(totalFuel.ToString());
                 item.SubItems.Add(totalOil.ToString());
                 item.SubItems.Add(totalFuelPrice.ToString());
                 item.SubItems.Add(totalOilPrice.ToString());
+                item.SubItems.Add(carAmmortization.ToString());
 
                 uiTransportListView.Items.Add(item);
+            }
+        }
+
+        private void UpdateWheelsReport(IEnumerable<int> courses)
+        {
+            foreach (var course in courses)
+            {
+                var distance = course;
+                var numberOfTrips = CalcNumberOfTrips(distance, out var hours);
+                var totalLength = numberOfTrips * 2 * distance;
+                var wheelsAmortization = float.Parse(uiWheelsSpendingsText.Text) / float.Parse(uiWheelKms.Text) / (float)uiCarCountUd.Value * totalLength;
+
+                var item = new ListViewItem(distance.ToString());
+
+                item.SubItems.Add(numberOfTrips.ToString());
+                item.SubItems.Add(totalLength.ToString());
+                item.SubItems.Add(hours.ToString());
+                item.SubItems.Add(wheelsAmortization.ToString());
+
+                uiWheelsListView.Items.Add(item);
+            }
+        }
+
+        private void UpdateDriverReport(IEnumerable<int> courses)
+        {
+            var fuelFactor = GetFuelFactor();
+
+            foreach (var course in courses)
+            {
+                var distance = course;
+                var numberOfTrips = CalcNumberOfTrips(distance, out var hours);
+                var totalLength = numberOfTrips * 2 * distance;
+                var totalCargo = numberOfTrips * uiUpDownCargoCapacity.Value;
+                var totalFuel = totalLength * GetFuelConsumption1km();
+
+                if (fuelFactor > 0.001f)
+                {
+                    totalFuel += totalFuel * fuelFactor;
+                }
+
+                var totalOil = totalFuel * GetOilCOnsumptionPercent(); //GetOilConsumption(totalLength);
+                var totalFuelPrice = totalFuel * float.Parse(uiFuelPrice.Text);
+                var totalOilPrice = totalOil * float.Parse(uiOilPrice.Text);
+                var wheelsAmortization = float.Parse(uiWheelsSpendingsText.Text) / float.Parse(uiWheelKms.Text) / (float)uiCarCountUd.Value * totalLength;
+                var carAmmortization = hours * float.Parse(uiAmmortizationPerHour.Text);
+                var totalSalary = hours * float.Parse(uiDriverSalaryHourly.Text);
+
+                // todo: uiWheelKms.Text - check for 0
+
+                var item = new ListViewItem(distance.ToString());
+
+                item.SubItems.Add(numberOfTrips.ToString());
+                item.SubItems.Add(totalLength.ToString());
+                item.SubItems.Add(hours.ToString());
+                item.SubItems.Add(totalSalary.ToString("0.00"));
+
+                uiDriverListView.Items.Add(item);
+            }
+        }
+
+        private void UpdateSparePartsReport(IEnumerable<int> courses)
+        {
+            foreach (var course in courses)
+            {
+                var distance = course;
+                var numberOfTrips = CalcNumberOfTrips(distance, out var hours);
+                var totalLength = numberOfTrips * 2 * distance;
+                var cost = (float.Parse(uiSparePartsAverage.Text) / float.Parse(uiSparePartsYearlyRegime.Text)) * hours;
+
+                var item = new ListViewItem(distance.ToString());
+
+                item.SubItems.Add(numberOfTrips.ToString());
+                item.SubItems.Add(totalLength.ToString());
+                item.SubItems.Add(hours.ToString());
+                item.SubItems.Add(cost.ToString("0.00"));
+
+                uiSparePartsListView.Items.Add(item);
+            }
+        }
+
+        private void UpdateCarCheckReport(IEnumerable<int> courses)
+        {
+            foreach (var course in courses)
+            {
+                var distance = course;
+                var numberOfTrips = CalcNumberOfTrips(distance, out var hours);
+                var totalLength = numberOfTrips * 2 * distance;
+                var cu = (float.Parse(uiCarCheckCU.Text) + float.Parse(uiCarCheckCuAdd.Text)) / 8f * hours;
+                var ct = (float.Parse(uiCarCheckCT.Text) + float.Parse(uiCarCheckCtAdd.Text)) * totalLength / 1000f;
+                var rt = (float.Parse(uiCarCheckRT.Text) + float.Parse(uiCarCheckRtAdd.Text)) * totalLength / 1000f;
+
+                /*
+                var holydaysAdd = float.Parse(uiDriverHolydaysAddText.Text);
+                var ensurance = float.Parse(uiDriverEnsuranceAddText.Text);
+                var expAverage = float.Parse(uiDriverExpAverageText.Text);
+
+                var salaryHourFixing = float.Parse(uiCarCheckTarif.Text)
+                    * (1 + expAverage / 100)
+                    * (1 + holydaysAdd / 100)
+                    * (1 + ensurance / 100);
+                */
+
+                var salaryHour = GetDriverSalaryHour();
+                var salaryHourFixing = GetDriverSalaryFixingHour();
+                var averageSalary = (salaryHour + salaryHourFixing) / 2f;
+                var totalSalary = (cu + ct + rt) * averageSalary;
+
+                uiCarCheckAvgSalary.Text = averageSalary.ToString("0.00");
+
+                var item = new ListViewItem(distance.ToString());
+
+                // item.SubItems.Add(numberOfTrips.ToString());
+                item.SubItems.Add(totalLength.ToString());
+                item.SubItems.Add(hours.ToString());
+                item.SubItems.Add(cu.ToString("0.00"));
+                item.SubItems.Add(ct.ToString("0.00"));
+                item.SubItems.Add(rt.ToString("0.00"));
+                item.SubItems.Add(totalSalary.ToString("0.00"));
+                // item.SubItems.Add(cost.ToString("0.00"));
+
+                uiCarCheckListView.Items.Add(item);
             }
         }
 
@@ -263,10 +416,61 @@ namespace MadCalc
 
         private void OnWheelsListChanged(object sender, ListChangedEventArgs e)
         {
-            uiWheelSpendings.Text = GetWheelsTotalCost().ToString();
+            uiWheelsSpendingsText.Text = GetWheelsTotalCost().ToString();
         }
 
-        private BindingList<Wheel> _wheels = new BindingList<Wheel>() { AllowEdit = true, AllowNew = true };
+        private void OnDriversListChanged(object sender, ListChangedEventArgs e)
+        {
+            var totalClass = 0u;
+            var totalExp = 0u;
+
+            foreach (var driver in _drivers)
+            {
+                totalClass += driver.ClassAdd;
+                totalExp += driver.ExpirienceAdd;
+            }
+
+            var carCount = (uint)uiCarCountUd.Value;
+            var classAverage = totalClass > 0 ? totalClass / carCount : 0;
+            var expAverage = totalExp > 0 ? totalExp / carCount : 0;
+
+            uiDriverClassAverageText.Text = classAverage.ToString();
+            uiDriverExpAverageText.Text = expAverage.ToString();
+
+            /*
+            var additionAdd = float.Parse(uiDriverAdditionAddText.Text);
+            var specialGear = float.Parse(uiDriverSpecialGearAdd.Text);
+            var holydaysAdd = float.Parse(uiDriverHolydaysAddText.Text);
+            var ensurance = float.Parse(uiDriverEnsuranceAddText.Text);
+            var premium = float.Parse(uiDriverPremiumAddText.Text);
+
+            var salaryHour = float.Parse(uiDriverTarif.Text)
+                * (1 + (additionAdd + specialGear + classAverage + expAverage + premium) / 100)
+                * (1 + holydaysAdd / 100)
+                * (1 + ensurance / 100);
+            */
+
+            var salaryHour = GetDriverSalaryHour(classAverage, expAverage);
+
+            uiDriverSalaryHourly.Text = salaryHour.ToString("0.00");
+        }
+
+        private void OnSparePartsListChanged(object sender, ListChangedEventArgs e)
+        {
+            var averge = 0f;
+
+            foreach (var sparePart in _spareParts)
+            {
+                averge += sparePart.Price;
+            }
+
+            if (averge > 0f)
+            {
+                averge /= (uint)uiCarCountUd.Value;
+            }
+
+            uiSparePartsAverage.Text = averge.ToString("0.00");
+        }
 
         private void uiWheelsGrid_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
@@ -322,5 +526,43 @@ namespace MadCalc
                 }
             }
         }
+
+        private float GetDriverSalaryHour()
+        {
+            return GetDriverSalaryHour(
+                float.Parse(uiDriverClassAverageText.Text),
+                float.Parse(uiDriverExpAverageText.Text));
+        }
+
+        private float GetDriverSalaryHour(float classAverage, float expAverage)
+        {
+            var additionAdd = float.Parse(uiDriverAdditionAddText.Text);
+            var specialGear = float.Parse(uiDriverSpecialGearAdd.Text);
+            var holydaysAdd = float.Parse(uiDriverHolydaysAddText.Text);
+            var ensurance = float.Parse(uiDriverEnsuranceAddText.Text);
+            var premium = float.Parse(uiDriverPremiumAddText.Text);
+
+            return float.Parse(uiDriverTarif.Text)
+                * (1 + (additionAdd + specialGear + classAverage + expAverage + premium) / 100)
+                * (1 + holydaysAdd / 100)
+                * (1 + ensurance / 100);
+        }
+
+        private float GetDriverSalaryFixingHour()
+        {
+            var holydaysAdd = float.Parse(uiDriverHolydaysAddText.Text);
+            var ensurance = float.Parse(uiDriverEnsuranceAddText.Text);
+
+            var expAverage = float.Parse(uiDriverExpAverageText.Text);
+
+            return float.Parse(uiCarCheckTarif.Text)
+                * (1 + expAverage / 100)
+                * (1 + holydaysAdd / 100)
+                * (1 + ensurance / 100);
+        }
+
+        private BindingList<Wheel> _wheels = new BindingList<Wheel>() { AllowEdit = true, AllowNew = true };
+        private BindingList<Driver> _drivers = new BindingList<Driver>() { AllowEdit = true, AllowNew = true };
+        private BindingList<SpareParts> _spareParts = new BindingList<SpareParts>() { AllowEdit = true, AllowNew = true };
     }
 }
