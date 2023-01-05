@@ -47,7 +47,6 @@
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.uiClearCoursesBtn = new System.Windows.Forms.Button();
-            this.uiDeleteCourseBtn = new System.Windows.Forms.Button();
             this.uiAddCourseBtn = new System.Windows.Forms.Button();
             this.uiTabPageMechanizm = new System.Windows.Forms.TabPage();
             this.uiTransportBottomPanel = new System.Windows.Forms.Panel();
@@ -61,6 +60,7 @@
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader30 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.uiTransportTopPanel = new System.Windows.Forms.Panel();
             this.uiAmmortizationPerHour = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -82,13 +82,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.uiUpDownVelocity = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.uiFuelPrice = new System.Windows.Forms.TextBox();
             this.uiUnloadTime = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.uiUpDownCargoCapacity = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.uiWheelsTabPage = new System.Windows.Forms.TabPage();
             this.uiWheelsBottomPanel = new System.Windows.Forms.Panel();
@@ -111,8 +109,20 @@
             this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader28 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader29 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.uiDriverTopPanel = new System.Windows.Forms.Panel();
-            this.uiDriverAdditionAddText = new System.Windows.Forms.TextBox();
+            this.uiDriverTarif = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.uiDriverSalaryHourly = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.uiDriverClassAverageText = new System.Windows.Forms.TextBox();
+            this.uiDriverExpAverageText = new System.Windows.Forms.TextBox();
+            this.uiDriversGrid = new System.Windows.Forms.DataGridView();
+            this.uiDriverPremiumAddText = new System.Windows.Forms.TextBox();
+            this.uiDriverPremiumAddLabel = new System.Windows.Forms.Label();
+            this.uiDriverSpecialGearAdd = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.uiDriverTrailerAddText = new System.Windows.Forms.TextBox();
             this.uiDriverHolydaysAddText = new System.Windows.Forms.TextBox();
             this.uiDriverEnsuranceAddText = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -120,51 +130,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.uiTabPageSpareParts = new System.Windows.Forms.TabPage();
-            this.uiReportTabPage = new System.Windows.Forms.TabPage();
-            this.uiReportTestBtn = new System.Windows.Forms.Button();
-            this.columnHeader30 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label22 = new System.Windows.Forms.Label();
-            this.uiDriverSpecialGearAdd = new System.Windows.Forms.TextBox();
-            this.uiDriverPremiumAddText = new System.Windows.Forms.TextBox();
-            this.uiDriverPremiumAddLabel = new System.Windows.Forms.Label();
-            this.uiDriversGrid = new System.Windows.Forms.DataGridView();
-            this.uiDriverExpAverageText = new System.Windows.Forms.TextBox();
-            this.uiDriverClassAverageText = new System.Windows.Forms.TextBox();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label23 = new System.Windows.Forms.Label();
-            this.uiDriverSalaryHourly = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.uiDriverTarif = new System.Windows.Forms.TextBox();
-            this.uiSparePartsUpperPanel = new System.Windows.Forms.Panel();
-            this.uiSparePartsLowerPanel = new System.Windows.Forms.Panel();
-            this.uiSparePartsGrid = new System.Windows.Forms.DataGridView();
-            this.label25 = new System.Windows.Forms.Label();
-            this.uiSparePartsAverage = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.uiSparePartsYearlyRegime = new System.Windows.Forms.TextBox();
-            this.uiSparePartsListView = new System.Windows.Forms.ListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.uiCarCheckTab = new System.Windows.Forms.TabPage();
-            this.uiCarCheckUpperPanel = new System.Windows.Forms.Panel();
-            this.label27 = new System.Windows.Forms.Label();
-            this.uiCarCheckCU = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.uiCarCheckCT = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.uiCarCheckRT = new System.Windows.Forms.TextBox();
-            this.uiCarCheckCuAdd = new System.Windows.Forms.TextBox();
-            this.uiCarCheckCtAdd = new System.Windows.Forms.TextBox();
-            this.uiCarCheckRtAdd = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.uiCarCheckTarif = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.uiCarCheckBottomPanel = new System.Windows.Forms.Panel();
             this.uiCarCheckListView = new System.Windows.Forms.ListView();
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -174,8 +140,41 @@
             this.columnHeader34 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader35 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader36 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label34 = new System.Windows.Forms.Label();
+            this.uiCarCheckUpperPanel = new System.Windows.Forms.Panel();
             this.uiCarCheckAvgSalary = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.uiCarCheckTarif = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.uiCarCheckRtTrailerAdd = new System.Windows.Forms.TextBox();
+            this.uiCarCheckCtTrailerAdd = new System.Windows.Forms.TextBox();
+            this.uiCarCheckCuTrailerAd = new System.Windows.Forms.TextBox();
+            this.uiCarCheckRT = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.uiCarCheckCT = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.uiCarCheckCU = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.uiTabPageSpareParts = new System.Windows.Forms.TabPage();
+            this.uiSparePartsLowerPanel = new System.Windows.Forms.Panel();
+            this.uiSparePartsListView = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.uiSparePartsUpperPanel = new System.Windows.Forms.Panel();
+            this.uiSparePartsYearlyRegime = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.uiSparePartsAverage = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.uiSparePartsGrid = new System.Windows.Forms.DataGridView();
+            this.uiReportTabPage = new System.Windows.Forms.TabPage();
+            this.uiReportTestBtn = new System.Windows.Forms.Button();
+            this.uiVelocityText = new System.Windows.Forms.TextBox();
+            this.uiCargoCapacityText = new System.Windows.Forms.TextBox();
             this.uiMainMenuStrip.SuspendLayout();
             this.uiMainToolStrip.SuspendLayout();
             this.uiTabControl.SuspendLayout();
@@ -186,8 +185,6 @@
             this.uiTransportBottomPanel.SuspendLayout();
             this.uiTransportTopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiCarCountUd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiUpDownVelocity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiUpDownCargoCapacity)).BeginInit();
             this.uiWheelsTabPage.SuspendLayout();
             this.uiWheelsBottomPanel.SuspendLayout();
             this.uiWheelsTopPanel.SuspendLayout();
@@ -195,15 +192,15 @@
             this.uiTabPageDriver.SuspendLayout();
             this.uiDriverBottomPanel.SuspendLayout();
             this.uiDriverTopPanel.SuspendLayout();
-            this.uiTabPageSpareParts.SuspendLayout();
-            this.uiReportTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiDriversGrid)).BeginInit();
-            this.uiSparePartsUpperPanel.SuspendLayout();
-            this.uiSparePartsLowerPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uiSparePartsGrid)).BeginInit();
             this.uiCarCheckTab.SuspendLayout();
-            this.uiCarCheckUpperPanel.SuspendLayout();
             this.uiCarCheckBottomPanel.SuspendLayout();
+            this.uiCarCheckUpperPanel.SuspendLayout();
+            this.uiTabPageSpareParts.SuspendLayout();
+            this.uiSparePartsLowerPanel.SuspendLayout();
+            this.uiSparePartsUpperPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uiSparePartsGrid)).BeginInit();
+            this.uiReportTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiStatusStrip
@@ -354,7 +351,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.uiClearCoursesBtn);
-            this.panel1.Controls.Add(this.uiDeleteCourseBtn);
             this.panel1.Controls.Add(this.uiAddCourseBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(999, 0);
@@ -364,23 +360,13 @@
             // 
             // uiClearCoursesBtn
             // 
-            this.uiClearCoursesBtn.Location = new System.Drawing.Point(6, 61);
+            this.uiClearCoursesBtn.Location = new System.Drawing.Point(6, 32);
             this.uiClearCoursesBtn.Name = "uiClearCoursesBtn";
             this.uiClearCoursesBtn.Size = new System.Drawing.Size(172, 23);
             this.uiClearCoursesBtn.TabIndex = 2;
             this.uiClearCoursesBtn.Text = "Удалить Все";
             this.uiClearCoursesBtn.UseVisualStyleBackColor = true;
             this.uiClearCoursesBtn.Click += new System.EventHandler(this.uiClearCoursesBtn_Click);
-            // 
-            // uiDeleteCourseBtn
-            // 
-            this.uiDeleteCourseBtn.Location = new System.Drawing.Point(6, 32);
-            this.uiDeleteCourseBtn.Name = "uiDeleteCourseBtn";
-            this.uiDeleteCourseBtn.Size = new System.Drawing.Size(172, 23);
-            this.uiDeleteCourseBtn.TabIndex = 1;
-            this.uiDeleteCourseBtn.Text = "Удалить";
-            this.uiDeleteCourseBtn.UseVisualStyleBackColor = true;
-            this.uiDeleteCourseBtn.Click += new System.EventHandler(this.uiDeleteCourseBtn_Click);
             // 
             // uiAddCourseBtn
             // 
@@ -483,8 +469,15 @@
             this.columnHeader25.Text = "стоимость масла";
             this.columnHeader25.Width = 130;
             // 
+            // columnHeader30
+            // 
+            this.columnHeader30.Text = "аммортизация";
+            this.columnHeader30.Width = 118;
+            // 
             // uiTransportTopPanel
             // 
+            this.uiTransportTopPanel.Controls.Add(this.uiCargoCapacityText);
+            this.uiTransportTopPanel.Controls.Add(this.uiVelocityText);
             this.uiTransportTopPanel.Controls.Add(this.uiAmmortizationPerHour);
             this.uiTransportTopPanel.Controls.Add(this.label21);
             this.uiTransportTopPanel.Controls.Add(this.label1);
@@ -505,13 +498,11 @@
             this.uiTransportTopPanel.Controls.Add(this.label3);
             this.uiTransportTopPanel.Controls.Add(this.label15);
             this.uiTransportTopPanel.Controls.Add(this.label13);
-            this.uiTransportTopPanel.Controls.Add(this.uiUpDownVelocity);
             this.uiTransportTopPanel.Controls.Add(this.label14);
             this.uiTransportTopPanel.Controls.Add(this.uiFuelPrice);
             this.uiTransportTopPanel.Controls.Add(this.uiUnloadTime);
             this.uiTransportTopPanel.Controls.Add(this.label5);
             this.uiTransportTopPanel.Controls.Add(this.label4);
-            this.uiTransportTopPanel.Controls.Add(this.uiUpDownCargoCapacity);
             this.uiTransportTopPanel.Controls.Add(this.label2);
             this.uiTransportTopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.uiTransportTopPanel.Location = new System.Drawing.Point(3, 3);
@@ -526,6 +517,7 @@
             this.uiAmmortizationPerHour.Size = new System.Drawing.Size(154, 23);
             this.uiAmmortizationPerHour.TabIndex = 30;
             this.uiAmmortizationPerHour.Text = "0";
+            this.uiAmmortizationPerHour.TextChanged += new System.EventHandler(this.uiAmmortizationPerHour_TextChanged);
             // 
             // label21
             // 
@@ -552,6 +544,7 @@
             this.uiAge.Size = new System.Drawing.Size(144, 23);
             this.uiAge.TabIndex = 26;
             this.uiAge.Text = "0";
+            this.uiAge.TextChanged += new System.EventHandler(this.uiAge_TextChanged);
             // 
             // uiCarCountUd
             // 
@@ -574,6 +567,7 @@
             0,
             0,
             0});
+            this.uiCarCountUd.ValueChanged += new System.EventHandler(this.uiCarCountUd_ValueChanged);
             // 
             // label17
             // 
@@ -591,6 +585,7 @@
             this.uiWinter.Size = new System.Drawing.Size(144, 23);
             this.uiWinter.TabIndex = 25;
             this.uiWinter.Text = "0";
+            this.uiWinter.TextChanged += new System.EventHandler(this.uiWinter_TextChanged);
             // 
             // uiComboBoxMechType
             // 
@@ -639,6 +634,7 @@
             this.uiOilPrice.Size = new System.Drawing.Size(144, 23);
             this.uiOilPrice.TabIndex = 18;
             this.uiOilPrice.Text = "0,65";
+            this.uiOilPrice.TextChanged += new System.EventHandler(this.uiOilPrice_TextChanged);
             // 
             // uiOilConsumtionTotal
             // 
@@ -647,6 +643,7 @@
             this.uiOilConsumtionTotal.Size = new System.Drawing.Size(144, 23);
             this.uiOilConsumtionTotal.TabIndex = 21;
             this.uiOilConsumtionTotal.Text = "0";
+            this.uiOilConsumtionTotal.TextChanged += new System.EventHandler(this.uiOilConsumtionTotal_TextChanged);
             // 
             // label12
             // 
@@ -712,28 +709,6 @@
             this.label13.TabIndex = 10;
             this.label13.Text = "Скорость (Км\\ч)";
             // 
-            // uiUpDownVelocity
-            // 
-            this.uiUpDownVelocity.Location = new System.Drawing.Point(197, 29);
-            this.uiUpDownVelocity.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.uiUpDownVelocity.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.uiUpDownVelocity.Name = "uiUpDownVelocity";
-            this.uiUpDownVelocity.Size = new System.Drawing.Size(144, 23);
-            this.uiUpDownVelocity.TabIndex = 11;
-            this.uiUpDownVelocity.Value = new decimal(new int[] {
-            40,
-            0,
-            0,
-            0});
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -750,6 +725,7 @@
             this.uiFuelPrice.Size = new System.Drawing.Size(144, 23);
             this.uiFuelPrice.TabIndex = 16;
             this.uiFuelPrice.Text = "0,65";
+            this.uiFuelPrice.TextChanged += new System.EventHandler(this.uiFuelPrice_TextChanged);
             // 
             // uiUnloadTime
             // 
@@ -758,6 +734,7 @@
             this.uiUnloadTime.Size = new System.Drawing.Size(144, 23);
             this.uiUnloadTime.TabIndex = 14;
             this.uiUnloadTime.Text = "0,65";
+            this.uiUnloadTime.TextChanged += new System.EventHandler(this.uiUnloadTime_TextChanged);
             // 
             // label5
             // 
@@ -776,29 +753,6 @@
             this.label4.Size = new System.Drawing.Size(178, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Грузоподъемность (тонн)";
-            // 
-            // uiUpDownCargoCapacity
-            // 
-            this.uiUpDownCargoCapacity.DecimalPlaces = 2;
-            this.uiUpDownCargoCapacity.Location = new System.Drawing.Point(197, 124);
-            this.uiUpDownCargoCapacity.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.uiUpDownCargoCapacity.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.uiUpDownCargoCapacity.Name = "uiUpDownCargoCapacity";
-            this.uiUpDownCargoCapacity.Size = new System.Drawing.Size(144, 23);
-            this.uiUpDownCargoCapacity.TabIndex = 7;
-            this.uiUpDownCargoCapacity.Value = new decimal(new int[] {
-            102,
-            0,
-            0,
-            65536});
             // 
             // label2
             // 
@@ -892,6 +846,7 @@
             this.uiWheelsSpendingsText.Size = new System.Drawing.Size(175, 23);
             this.uiWheelsSpendingsText.TabIndex = 4;
             this.uiWheelsSpendingsText.Text = "0";
+            this.uiWheelsSpendingsText.TextChanged += new System.EventHandler(this.uiWheelsSpendingsText_TextChanged);
             // 
             // label20
             // 
@@ -918,6 +873,7 @@
             this.uiWheelKms.Size = new System.Drawing.Size(175, 23);
             this.uiWheelKms.TabIndex = 2;
             this.uiWheelKms.Text = "50000";
+            this.uiWheelKms.TextChanged += new System.EventHandler(this.uiWheelKms_TextChanged);
             // 
             // label18
             // 
@@ -987,6 +943,11 @@
             this.columnHeader29.Text = "время в пути";
             this.columnHeader29.Width = 112;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "зарплата";
+            this.columnHeader4.Width = 99;
+            // 
             // uiDriverTopPanel
             // 
             this.uiDriverTopPanel.Controls.Add(this.uiDriverTarif);
@@ -1000,7 +961,7 @@
             this.uiDriverTopPanel.Controls.Add(this.uiDriverPremiumAddLabel);
             this.uiDriverTopPanel.Controls.Add(this.uiDriverSpecialGearAdd);
             this.uiDriverTopPanel.Controls.Add(this.label22);
-            this.uiDriverTopPanel.Controls.Add(this.uiDriverAdditionAddText);
+            this.uiDriverTopPanel.Controls.Add(this.uiDriverTrailerAddText);
             this.uiDriverTopPanel.Controls.Add(this.uiDriverHolydaysAddText);
             this.uiDriverTopPanel.Controls.Add(this.uiDriverEnsuranceAddText);
             this.uiDriverTopPanel.Controls.Add(this.label10);
@@ -1014,13 +975,112 @@
             this.uiDriverTopPanel.Size = new System.Drawing.Size(1179, 164);
             this.uiDriverTopPanel.TabIndex = 13;
             // 
-            // uiDriverAdditionAddText
+            // uiDriverTarif
             // 
-            this.uiDriverAdditionAddText.Location = new System.Drawing.Point(513, 75);
-            this.uiDriverAdditionAddText.Name = "uiDriverAdditionAddText";
-            this.uiDriverAdditionAddText.Size = new System.Drawing.Size(144, 23);
-            this.uiDriverAdditionAddText.TabIndex = 18;
-            this.uiDriverAdditionAddText.Text = "0";
+            this.uiDriverTarif.Location = new System.Drawing.Point(513, 29);
+            this.uiDriverTarif.Name = "uiDriverTarif";
+            this.uiDriverTarif.Size = new System.Drawing.Size(144, 23);
+            this.uiDriverTarif.TabIndex = 29;
+            this.uiDriverTarif.Text = "0";
+            this.uiDriverTarif.TextChanged += new System.EventHandler(this.uiDriverTarif_TextChanged);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(510, 9);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(52, 17);
+            this.label24.TabIndex = 28;
+            this.label24.Text = "Тариф";
+            // 
+            // uiDriverSalaryHourly
+            // 
+            this.uiDriverSalaryHourly.Location = new System.Drawing.Point(941, 121);
+            this.uiDriverSalaryHourly.Name = "uiDriverSalaryHourly";
+            this.uiDriverSalaryHourly.Size = new System.Drawing.Size(144, 23);
+            this.uiDriverSalaryHourly.TabIndex = 27;
+            this.uiDriverSalaryHourly.Text = "0";
+            this.uiDriverSalaryHourly.TextChanged += new System.EventHandler(this.uiDriverSalaryHourly_TextChanged);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(938, 101);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(110, 17);
+            this.label23.TabIndex = 26;
+            this.label23.Text = "Зарплата в час";
+            // 
+            // uiDriverClassAverageText
+            // 
+            this.uiDriverClassAverageText.Location = new System.Drawing.Point(941, 75);
+            this.uiDriverClassAverageText.Name = "uiDriverClassAverageText";
+            this.uiDriverClassAverageText.Size = new System.Drawing.Size(144, 23);
+            this.uiDriverClassAverageText.TabIndex = 25;
+            this.uiDriverClassAverageText.Text = "0";
+            this.uiDriverClassAverageText.TextChanged += new System.EventHandler(this.uiDriverClassAverageText_TextChanged);
+            // 
+            // uiDriverExpAverageText
+            // 
+            this.uiDriverExpAverageText.Location = new System.Drawing.Point(941, 29);
+            this.uiDriverExpAverageText.Name = "uiDriverExpAverageText";
+            this.uiDriverExpAverageText.Size = new System.Drawing.Size(144, 23);
+            this.uiDriverExpAverageText.TabIndex = 24;
+            this.uiDriverExpAverageText.Text = "0";
+            this.uiDriverExpAverageText.TextChanged += new System.EventHandler(this.uiDriverExpAverageText_TextChanged);
+            // 
+            // uiDriversGrid
+            // 
+            this.uiDriversGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.uiDriversGrid.Location = new System.Drawing.Point(5, 2);
+            this.uiDriversGrid.Name = "uiDriversGrid";
+            this.uiDriversGrid.Size = new System.Drawing.Size(484, 159);
+            this.uiDriversGrid.TabIndex = 23;
+            // 
+            // uiDriverPremiumAddText
+            // 
+            this.uiDriverPremiumAddText.Location = new System.Drawing.Point(723, 29);
+            this.uiDriverPremiumAddText.Name = "uiDriverPremiumAddText";
+            this.uiDriverPremiumAddText.Size = new System.Drawing.Size(144, 23);
+            this.uiDriverPremiumAddText.TabIndex = 22;
+            this.uiDriverPremiumAddText.Text = "40";
+            this.uiDriverPremiumAddText.TextChanged += new System.EventHandler(this.uiDriverPremiumAddText_TextChanged);
+            // 
+            // uiDriverPremiumAddLabel
+            // 
+            this.uiDriverPremiumAddLabel.AutoSize = true;
+            this.uiDriverPremiumAddLabel.Location = new System.Drawing.Point(720, 9);
+            this.uiDriverPremiumAddLabel.Name = "uiDriverPremiumAddLabel";
+            this.uiDriverPremiumAddLabel.Size = new System.Drawing.Size(59, 17);
+            this.uiDriverPremiumAddLabel.TabIndex = 21;
+            this.uiDriverPremiumAddLabel.Text = "Премия";
+            // 
+            // uiDriverSpecialGearAdd
+            // 
+            this.uiDriverSpecialGearAdd.Location = new System.Drawing.Point(513, 121);
+            this.uiDriverSpecialGearAdd.Name = "uiDriverSpecialGearAdd";
+            this.uiDriverSpecialGearAdd.Size = new System.Drawing.Size(144, 23);
+            this.uiDriverSpecialGearAdd.TabIndex = 20;
+            this.uiDriverSpecialGearAdd.Text = "0";
+            this.uiDriverSpecialGearAdd.TextChanged += new System.EventHandler(this.uiDriverSpecialGearAdd_TextChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(510, 101);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(182, 17);
+            this.label22.TabIndex = 19;
+            this.label22.Text = "Надбавка за спец-оборуд.";
+            // 
+            // uiDriverTrailerAddText
+            // 
+            this.uiDriverTrailerAddText.Location = new System.Drawing.Point(513, 75);
+            this.uiDriverTrailerAddText.Name = "uiDriverTrailerAddText";
+            this.uiDriverTrailerAddText.Size = new System.Drawing.Size(144, 23);
+            this.uiDriverTrailerAddText.TabIndex = 18;
+            this.uiDriverTrailerAddText.Text = "0";
+            this.uiDriverTrailerAddText.TextChanged += new System.EventHandler(this.uiDriverTrailerAddText_TextChanged);
             // 
             // uiDriverHolydaysAddText
             // 
@@ -1029,6 +1089,7 @@
             this.uiDriverHolydaysAddText.Size = new System.Drawing.Size(144, 23);
             this.uiDriverHolydaysAddText.TabIndex = 17;
             this.uiDriverHolydaysAddText.Text = "8,3";
+            this.uiDriverHolydaysAddText.TextChanged += new System.EventHandler(this.uiDriverHolydaysAddText_TextChanged);
             // 
             // uiDriverEnsuranceAddText
             // 
@@ -1037,6 +1098,7 @@
             this.uiDriverEnsuranceAddText.Size = new System.Drawing.Size(144, 23);
             this.uiDriverEnsuranceAddText.TabIndex = 16;
             this.uiDriverEnsuranceAddText.Text = "24";
+            this.uiDriverEnsuranceAddText.TextChanged += new System.EventHandler(this.uiDriverEnsuranceAddText_TextChanged);
             // 
             // label10
             // 
@@ -1083,246 +1145,6 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Страхование";
             // 
-            // uiTabPageSpareParts
-            // 
-            this.uiTabPageSpareParts.Controls.Add(this.uiSparePartsLowerPanel);
-            this.uiTabPageSpareParts.Controls.Add(this.uiSparePartsUpperPanel);
-            this.uiTabPageSpareParts.Location = new System.Drawing.Point(4, 25);
-            this.uiTabPageSpareParts.Name = "uiTabPageSpareParts";
-            this.uiTabPageSpareParts.Size = new System.Drawing.Size(1185, 578);
-            this.uiTabPageSpareParts.TabIndex = 3;
-            this.uiTabPageSpareParts.Text = "Запасные Части";
-            this.uiTabPageSpareParts.UseVisualStyleBackColor = true;
-            // 
-            // uiReportTabPage
-            // 
-            this.uiReportTabPage.Controls.Add(this.uiReportTestBtn);
-            this.uiReportTabPage.Location = new System.Drawing.Point(4, 25);
-            this.uiReportTabPage.Name = "uiReportTabPage";
-            this.uiReportTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.uiReportTabPage.Size = new System.Drawing.Size(1185, 578);
-            this.uiReportTabPage.TabIndex = 5;
-            this.uiReportTabPage.Text = "Отчет";
-            this.uiReportTabPage.UseVisualStyleBackColor = true;
-            // 
-            // uiReportTestBtn
-            // 
-            this.uiReportTestBtn.Location = new System.Drawing.Point(8, 6);
-            this.uiReportTestBtn.Name = "uiReportTestBtn";
-            this.uiReportTestBtn.Size = new System.Drawing.Size(75, 23);
-            this.uiReportTestBtn.TabIndex = 0;
-            this.uiReportTestBtn.Text = "Test";
-            this.uiReportTestBtn.UseVisualStyleBackColor = true;
-            this.uiReportTestBtn.Click += new System.EventHandler(this.uiReportTestBtn_Click);
-            // 
-            // columnHeader30
-            // 
-            this.columnHeader30.Text = "аммортизация";
-            this.columnHeader30.Width = 118;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(510, 101);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(182, 17);
-            this.label22.TabIndex = 19;
-            this.label22.Text = "Надбавка за спец-оборуд.";
-            // 
-            // uiDriverSpecialGearAdd
-            // 
-            this.uiDriverSpecialGearAdd.Location = new System.Drawing.Point(513, 121);
-            this.uiDriverSpecialGearAdd.Name = "uiDriverSpecialGearAdd";
-            this.uiDriverSpecialGearAdd.Size = new System.Drawing.Size(144, 23);
-            this.uiDriverSpecialGearAdd.TabIndex = 20;
-            this.uiDriverSpecialGearAdd.Text = "0";
-            // 
-            // uiDriverPremiumAddText
-            // 
-            this.uiDriverPremiumAddText.Location = new System.Drawing.Point(723, 29);
-            this.uiDriverPremiumAddText.Name = "uiDriverPremiumAddText";
-            this.uiDriverPremiumAddText.Size = new System.Drawing.Size(144, 23);
-            this.uiDriverPremiumAddText.TabIndex = 22;
-            this.uiDriverPremiumAddText.Text = "40";
-            // 
-            // uiDriverPremiumAddLabel
-            // 
-            this.uiDriverPremiumAddLabel.AutoSize = true;
-            this.uiDriverPremiumAddLabel.Location = new System.Drawing.Point(720, 9);
-            this.uiDriverPremiumAddLabel.Name = "uiDriverPremiumAddLabel";
-            this.uiDriverPremiumAddLabel.Size = new System.Drawing.Size(59, 17);
-            this.uiDriverPremiumAddLabel.TabIndex = 21;
-            this.uiDriverPremiumAddLabel.Text = "Премия";
-            // 
-            // uiDriversGrid
-            // 
-            this.uiDriversGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uiDriversGrid.Location = new System.Drawing.Point(5, 2);
-            this.uiDriversGrid.Name = "uiDriversGrid";
-            this.uiDriversGrid.Size = new System.Drawing.Size(484, 159);
-            this.uiDriversGrid.TabIndex = 23;
-            // 
-            // uiDriverExpAverageText
-            // 
-            this.uiDriverExpAverageText.Location = new System.Drawing.Point(941, 29);
-            this.uiDriverExpAverageText.Name = "uiDriverExpAverageText";
-            this.uiDriverExpAverageText.Size = new System.Drawing.Size(144, 23);
-            this.uiDriverExpAverageText.TabIndex = 24;
-            this.uiDriverExpAverageText.Text = "0";
-            // 
-            // uiDriverClassAverageText
-            // 
-            this.uiDriverClassAverageText.Location = new System.Drawing.Point(941, 75);
-            this.uiDriverClassAverageText.Name = "uiDriverClassAverageText";
-            this.uiDriverClassAverageText.Size = new System.Drawing.Size(144, 23);
-            this.uiDriverClassAverageText.TabIndex = 25;
-            this.uiDriverClassAverageText.Text = "0";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "зарплата";
-            this.columnHeader4.Width = 99;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(938, 101);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(110, 17);
-            this.label23.TabIndex = 26;
-            this.label23.Text = "Зарплата в час";
-            // 
-            // uiDriverSalaryHourly
-            // 
-            this.uiDriverSalaryHourly.Location = new System.Drawing.Point(941, 121);
-            this.uiDriverSalaryHourly.Name = "uiDriverSalaryHourly";
-            this.uiDriverSalaryHourly.Size = new System.Drawing.Size(144, 23);
-            this.uiDriverSalaryHourly.TabIndex = 27;
-            this.uiDriverSalaryHourly.Text = "0";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(510, 9);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(52, 17);
-            this.label24.TabIndex = 28;
-            this.label24.Text = "Тариф";
-            // 
-            // uiDriverTarif
-            // 
-            this.uiDriverTarif.Location = new System.Drawing.Point(513, 29);
-            this.uiDriverTarif.Name = "uiDriverTarif";
-            this.uiDriverTarif.Size = new System.Drawing.Size(144, 23);
-            this.uiDriverTarif.TabIndex = 29;
-            this.uiDriverTarif.Text = "0";
-            // 
-            // uiSparePartsUpperPanel
-            // 
-            this.uiSparePartsUpperPanel.Controls.Add(this.uiSparePartsYearlyRegime);
-            this.uiSparePartsUpperPanel.Controls.Add(this.label26);
-            this.uiSparePartsUpperPanel.Controls.Add(this.uiSparePartsAverage);
-            this.uiSparePartsUpperPanel.Controls.Add(this.label25);
-            this.uiSparePartsUpperPanel.Controls.Add(this.uiSparePartsGrid);
-            this.uiSparePartsUpperPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiSparePartsUpperPanel.Location = new System.Drawing.Point(0, 0);
-            this.uiSparePartsUpperPanel.Name = "uiSparePartsUpperPanel";
-            this.uiSparePartsUpperPanel.Size = new System.Drawing.Size(1185, 164);
-            this.uiSparePartsUpperPanel.TabIndex = 0;
-            // 
-            // uiSparePartsLowerPanel
-            // 
-            this.uiSparePartsLowerPanel.Controls.Add(this.uiSparePartsListView);
-            this.uiSparePartsLowerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiSparePartsLowerPanel.Location = new System.Drawing.Point(0, 164);
-            this.uiSparePartsLowerPanel.Name = "uiSparePartsLowerPanel";
-            this.uiSparePartsLowerPanel.Size = new System.Drawing.Size(1185, 414);
-            this.uiSparePartsLowerPanel.TabIndex = 1;
-            // 
-            // uiSparePartsGrid
-            // 
-            this.uiSparePartsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uiSparePartsGrid.Location = new System.Drawing.Point(8, 3);
-            this.uiSparePartsGrid.Name = "uiSparePartsGrid";
-            this.uiSparePartsGrid.Size = new System.Drawing.Size(484, 159);
-            this.uiSparePartsGrid.TabIndex = 24;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(508, 59);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(175, 17);
-            this.label25.TabIndex = 25;
-            this.label25.Text = "Средняя стоимость (лей)";
-            // 
-            // uiSparePartsAverage
-            // 
-            this.uiSparePartsAverage.Location = new System.Drawing.Point(511, 79);
-            this.uiSparePartsAverage.Name = "uiSparePartsAverage";
-            this.uiSparePartsAverage.Size = new System.Drawing.Size(144, 23);
-            this.uiSparePartsAverage.TabIndex = 26;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(508, 13);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(181, 17);
-            this.label26.TabIndex = 27;
-            this.label26.Text = "Годовой режим (часы\\год)";
-            // 
-            // uiSparePartsYearlyRegime
-            // 
-            this.uiSparePartsYearlyRegime.Location = new System.Drawing.Point(511, 33);
-            this.uiSparePartsYearlyRegime.Name = "uiSparePartsYearlyRegime";
-            this.uiSparePartsYearlyRegime.Size = new System.Drawing.Size(144, 23);
-            this.uiSparePartsYearlyRegime.TabIndex = 28;
-            this.uiSparePartsYearlyRegime.Text = "1600";
-            // 
-            // uiSparePartsListView
-            // 
-            this.uiSparePartsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9});
-            this.uiSparePartsListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiSparePartsListView.GridLines = true;
-            this.uiSparePartsListView.HideSelection = false;
-            this.uiSparePartsListView.Location = new System.Drawing.Point(0, 0);
-            this.uiSparePartsListView.Name = "uiSparePartsListView";
-            this.uiSparePartsListView.Size = new System.Drawing.Size(1185, 414);
-            this.uiSparePartsListView.TabIndex = 0;
-            this.uiSparePartsListView.UseCompatibleStateImageBehavior = false;
-            this.uiSparePartsListView.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "расстояние";
-            this.columnHeader5.Width = 90;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "число рейсов";
-            this.columnHeader6.Width = 104;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "общее расстояние";
-            this.columnHeader7.Width = 138;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "время в пути";
-            this.columnHeader8.Width = 105;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "стоимость";
-            this.columnHeader9.Width = 98;
-            // 
             // uiCarCheckTab
             // 
             this.uiCarCheckTab.Controls.Add(this.uiCarCheckBottomPanel);
@@ -1333,149 +1155,6 @@
             this.uiCarCheckTab.TabIndex = 7;
             this.uiCarCheckTab.Text = "Техосмотр";
             this.uiCarCheckTab.UseVisualStyleBackColor = true;
-            // 
-            // uiCarCheckUpperPanel
-            // 
-            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckAvgSalary);
-            this.uiCarCheckUpperPanel.Controls.Add(this.label34);
-            this.uiCarCheckUpperPanel.Controls.Add(this.label33);
-            this.uiCarCheckUpperPanel.Controls.Add(this.label32);
-            this.uiCarCheckUpperPanel.Controls.Add(this.label31);
-            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckTarif);
-            this.uiCarCheckUpperPanel.Controls.Add(this.label30);
-            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckRtAdd);
-            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckCtAdd);
-            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckCuAdd);
-            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckRT);
-            this.uiCarCheckUpperPanel.Controls.Add(this.label29);
-            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckCT);
-            this.uiCarCheckUpperPanel.Controls.Add(this.label28);
-            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckCU);
-            this.uiCarCheckUpperPanel.Controls.Add(this.label27);
-            this.uiCarCheckUpperPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiCarCheckUpperPanel.Location = new System.Drawing.Point(0, 0);
-            this.uiCarCheckUpperPanel.Name = "uiCarCheckUpperPanel";
-            this.uiCarCheckUpperPanel.Size = new System.Drawing.Size(1185, 164);
-            this.uiCarCheckUpperPanel.TabIndex = 0;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(8, 12);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(27, 17);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "CU";
-            // 
-            // uiCarCheckCU
-            // 
-            this.uiCarCheckCU.Location = new System.Drawing.Point(11, 32);
-            this.uiCarCheckCU.Name = "uiCarCheckCU";
-            this.uiCarCheckCU.Size = new System.Drawing.Size(144, 23);
-            this.uiCarCheckCU.TabIndex = 30;
-            this.uiCarCheckCU.Text = "1,0";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(8, 58);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(26, 17);
-            this.label28.TabIndex = 31;
-            this.label28.Text = "CT";
-            // 
-            // uiCarCheckCT
-            // 
-            this.uiCarCheckCT.Location = new System.Drawing.Point(11, 78);
-            this.uiCarCheckCT.Name = "uiCarCheckCT";
-            this.uiCarCheckCT.Size = new System.Drawing.Size(144, 23);
-            this.uiCarCheckCT.TabIndex = 32;
-            this.uiCarCheckCT.Text = "2,6";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(9, 104);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(27, 17);
-            this.label29.TabIndex = 33;
-            this.label29.Text = "RT";
-            // 
-            // uiCarCheckRT
-            // 
-            this.uiCarCheckRT.Location = new System.Drawing.Point(11, 124);
-            this.uiCarCheckRT.Name = "uiCarCheckRT";
-            this.uiCarCheckRT.Size = new System.Drawing.Size(144, 23);
-            this.uiCarCheckRT.TabIndex = 34;
-            this.uiCarCheckRT.Text = "7,0";
-            // 
-            // uiCarCheckCuAdd
-            // 
-            this.uiCarCheckCuAdd.Location = new System.Drawing.Point(184, 32);
-            this.uiCarCheckCuAdd.Name = "uiCarCheckCuAdd";
-            this.uiCarCheckCuAdd.Size = new System.Drawing.Size(144, 23);
-            this.uiCarCheckCuAdd.TabIndex = 35;
-            this.uiCarCheckCuAdd.Text = "0";
-            // 
-            // uiCarCheckCtAdd
-            // 
-            this.uiCarCheckCtAdd.Location = new System.Drawing.Point(184, 78);
-            this.uiCarCheckCtAdd.Name = "uiCarCheckCtAdd";
-            this.uiCarCheckCtAdd.Size = new System.Drawing.Size(144, 23);
-            this.uiCarCheckCtAdd.TabIndex = 36;
-            this.uiCarCheckCtAdd.Text = "0";
-            // 
-            // uiCarCheckRtAdd
-            // 
-            this.uiCarCheckRtAdd.Location = new System.Drawing.Point(184, 124);
-            this.uiCarCheckRtAdd.Name = "uiCarCheckRtAdd";
-            this.uiCarCheckRtAdd.Size = new System.Drawing.Size(144, 23);
-            this.uiCarCheckRtAdd.TabIndex = 37;
-            this.uiCarCheckRtAdd.Text = "0";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(360, 12);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(178, 17);
-            this.label30.TabIndex = 38;
-            this.label30.Text = "Тариф при ремонте (лей)";
-            // 
-            // uiCarCheckTarif
-            // 
-            this.uiCarCheckTarif.Location = new System.Drawing.Point(363, 32);
-            this.uiCarCheckTarif.Name = "uiCarCheckTarif";
-            this.uiCarCheckTarif.Size = new System.Drawing.Size(144, 23);
-            this.uiCarCheckTarif.TabIndex = 39;
-            this.uiCarCheckTarif.Text = "34,73";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(181, 12);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(58, 17);
-            this.label31.TabIndex = 40;
-            this.label31.Text = "Прицеп";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(181, 58);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(58, 17);
-            this.label32.TabIndex = 41;
-            this.label32.Text = "Прицеп";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(181, 104);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(58, 17);
-            this.label33.TabIndex = 42;
-            this.label33.Text = "Прицеп";
             // 
             // uiCarCheckBottomPanel
             // 
@@ -1537,6 +1216,39 @@
             // 
             this.columnHeader36.Text = "всего";
             // 
+            // uiCarCheckUpperPanel
+            // 
+            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckAvgSalary);
+            this.uiCarCheckUpperPanel.Controls.Add(this.label34);
+            this.uiCarCheckUpperPanel.Controls.Add(this.label33);
+            this.uiCarCheckUpperPanel.Controls.Add(this.label32);
+            this.uiCarCheckUpperPanel.Controls.Add(this.label31);
+            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckTarif);
+            this.uiCarCheckUpperPanel.Controls.Add(this.label30);
+            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckRtTrailerAdd);
+            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckCtTrailerAdd);
+            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckCuTrailerAd);
+            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckRT);
+            this.uiCarCheckUpperPanel.Controls.Add(this.label29);
+            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckCT);
+            this.uiCarCheckUpperPanel.Controls.Add(this.label28);
+            this.uiCarCheckUpperPanel.Controls.Add(this.uiCarCheckCU);
+            this.uiCarCheckUpperPanel.Controls.Add(this.label27);
+            this.uiCarCheckUpperPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiCarCheckUpperPanel.Location = new System.Drawing.Point(0, 0);
+            this.uiCarCheckUpperPanel.Name = "uiCarCheckUpperPanel";
+            this.uiCarCheckUpperPanel.Size = new System.Drawing.Size(1185, 164);
+            this.uiCarCheckUpperPanel.TabIndex = 0;
+            // 
+            // uiCarCheckAvgSalary
+            // 
+            this.uiCarCheckAvgSalary.Location = new System.Drawing.Point(363, 78);
+            this.uiCarCheckAvgSalary.Name = "uiCarCheckAvgSalary";
+            this.uiCarCheckAvgSalary.Size = new System.Drawing.Size(144, 23);
+            this.uiCarCheckAvgSalary.TabIndex = 44;
+            this.uiCarCheckAvgSalary.Text = "0";
+            this.uiCarCheckAvgSalary.TextChanged += new System.EventHandler(this.uiCarCheckAvgSalary_TextChanged);
+            // 
             // label34
             // 
             this.label34.AutoSize = true;
@@ -1546,13 +1258,289 @@
             this.label34.TabIndex = 43;
             this.label34.Text = "Средняя ЗП в час (лей)";
             // 
-            // uiCarCheckAvgSalary
+            // label33
             // 
-            this.uiCarCheckAvgSalary.Location = new System.Drawing.Point(363, 78);
-            this.uiCarCheckAvgSalary.Name = "uiCarCheckAvgSalary";
-            this.uiCarCheckAvgSalary.Size = new System.Drawing.Size(144, 23);
-            this.uiCarCheckAvgSalary.TabIndex = 44;
-            this.uiCarCheckAvgSalary.Text = "0";
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(181, 104);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(58, 17);
+            this.label33.TabIndex = 42;
+            this.label33.Text = "Прицеп";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(181, 58);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(58, 17);
+            this.label32.TabIndex = 41;
+            this.label32.Text = "Прицеп";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(181, 12);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(58, 17);
+            this.label31.TabIndex = 40;
+            this.label31.Text = "Прицеп";
+            // 
+            // uiCarCheckTarif
+            // 
+            this.uiCarCheckTarif.Location = new System.Drawing.Point(363, 32);
+            this.uiCarCheckTarif.Name = "uiCarCheckTarif";
+            this.uiCarCheckTarif.Size = new System.Drawing.Size(144, 23);
+            this.uiCarCheckTarif.TabIndex = 39;
+            this.uiCarCheckTarif.Text = "34,73";
+            this.uiCarCheckTarif.TextChanged += new System.EventHandler(this.uiCarCheckTarif_TextChanged);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(360, 12);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(178, 17);
+            this.label30.TabIndex = 38;
+            this.label30.Text = "Тариф при ремонте (лей)";
+            // 
+            // uiCarCheckRtTrailerAdd
+            // 
+            this.uiCarCheckRtTrailerAdd.Location = new System.Drawing.Point(184, 124);
+            this.uiCarCheckRtTrailerAdd.Name = "uiCarCheckRtTrailerAdd";
+            this.uiCarCheckRtTrailerAdd.Size = new System.Drawing.Size(144, 23);
+            this.uiCarCheckRtTrailerAdd.TabIndex = 37;
+            this.uiCarCheckRtTrailerAdd.Text = "0";
+            this.uiCarCheckRtTrailerAdd.TextChanged += new System.EventHandler(this.uiCarCheckRtTrailerAdd_TextChanged);
+            // 
+            // uiCarCheckCtTrailerAdd
+            // 
+            this.uiCarCheckCtTrailerAdd.Location = new System.Drawing.Point(184, 78);
+            this.uiCarCheckCtTrailerAdd.Name = "uiCarCheckCtTrailerAdd";
+            this.uiCarCheckCtTrailerAdd.Size = new System.Drawing.Size(144, 23);
+            this.uiCarCheckCtTrailerAdd.TabIndex = 36;
+            this.uiCarCheckCtTrailerAdd.Text = "0";
+            this.uiCarCheckCtTrailerAdd.TextChanged += new System.EventHandler(this.uiCarCheckCtTrailerAdd_TextChanged);
+            // 
+            // uiCarCheckCuTrailerAd
+            // 
+            this.uiCarCheckCuTrailerAd.Location = new System.Drawing.Point(184, 32);
+            this.uiCarCheckCuTrailerAd.Name = "uiCarCheckCuTrailerAd";
+            this.uiCarCheckCuTrailerAd.Size = new System.Drawing.Size(144, 23);
+            this.uiCarCheckCuTrailerAd.TabIndex = 35;
+            this.uiCarCheckCuTrailerAd.Text = "0";
+            this.uiCarCheckCuTrailerAd.TextChanged += new System.EventHandler(this.uiCarCheckCuTrailerAd_TextChanged);
+            // 
+            // uiCarCheckRT
+            // 
+            this.uiCarCheckRT.Location = new System.Drawing.Point(11, 124);
+            this.uiCarCheckRT.Name = "uiCarCheckRT";
+            this.uiCarCheckRT.Size = new System.Drawing.Size(144, 23);
+            this.uiCarCheckRT.TabIndex = 34;
+            this.uiCarCheckRT.Text = "7,0";
+            this.uiCarCheckRT.TextChanged += new System.EventHandler(this.uiCarCheckRT_TextChanged);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(9, 104);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(27, 17);
+            this.label29.TabIndex = 33;
+            this.label29.Text = "RT";
+            // 
+            // uiCarCheckCT
+            // 
+            this.uiCarCheckCT.Location = new System.Drawing.Point(11, 78);
+            this.uiCarCheckCT.Name = "uiCarCheckCT";
+            this.uiCarCheckCT.Size = new System.Drawing.Size(144, 23);
+            this.uiCarCheckCT.TabIndex = 32;
+            this.uiCarCheckCT.Text = "2,6";
+            this.uiCarCheckCT.TextChanged += new System.EventHandler(this.uiCarCheckCT_TextChanged);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(8, 58);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(26, 17);
+            this.label28.TabIndex = 31;
+            this.label28.Text = "CT";
+            // 
+            // uiCarCheckCU
+            // 
+            this.uiCarCheckCU.Location = new System.Drawing.Point(11, 32);
+            this.uiCarCheckCU.Name = "uiCarCheckCU";
+            this.uiCarCheckCU.Size = new System.Drawing.Size(144, 23);
+            this.uiCarCheckCU.TabIndex = 30;
+            this.uiCarCheckCU.Text = "1,0";
+            this.uiCarCheckCU.TextChanged += new System.EventHandler(this.uiCarCheckCU_TextChanged);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(8, 12);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(27, 17);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "CU";
+            // 
+            // uiTabPageSpareParts
+            // 
+            this.uiTabPageSpareParts.Controls.Add(this.uiSparePartsLowerPanel);
+            this.uiTabPageSpareParts.Controls.Add(this.uiSparePartsUpperPanel);
+            this.uiTabPageSpareParts.Location = new System.Drawing.Point(4, 25);
+            this.uiTabPageSpareParts.Name = "uiTabPageSpareParts";
+            this.uiTabPageSpareParts.Size = new System.Drawing.Size(1185, 578);
+            this.uiTabPageSpareParts.TabIndex = 3;
+            this.uiTabPageSpareParts.Text = "Запасные Части";
+            this.uiTabPageSpareParts.UseVisualStyleBackColor = true;
+            // 
+            // uiSparePartsLowerPanel
+            // 
+            this.uiSparePartsLowerPanel.Controls.Add(this.uiSparePartsListView);
+            this.uiSparePartsLowerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiSparePartsLowerPanel.Location = new System.Drawing.Point(0, 164);
+            this.uiSparePartsLowerPanel.Name = "uiSparePartsLowerPanel";
+            this.uiSparePartsLowerPanel.Size = new System.Drawing.Size(1185, 414);
+            this.uiSparePartsLowerPanel.TabIndex = 1;
+            // 
+            // uiSparePartsListView
+            // 
+            this.uiSparePartsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
+            this.uiSparePartsListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiSparePartsListView.GridLines = true;
+            this.uiSparePartsListView.HideSelection = false;
+            this.uiSparePartsListView.Location = new System.Drawing.Point(0, 0);
+            this.uiSparePartsListView.Name = "uiSparePartsListView";
+            this.uiSparePartsListView.Size = new System.Drawing.Size(1185, 414);
+            this.uiSparePartsListView.TabIndex = 0;
+            this.uiSparePartsListView.UseCompatibleStateImageBehavior = false;
+            this.uiSparePartsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "расстояние";
+            this.columnHeader5.Width = 90;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "число рейсов";
+            this.columnHeader6.Width = 104;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "общее расстояние";
+            this.columnHeader7.Width = 138;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "время в пути";
+            this.columnHeader8.Width = 105;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "стоимость";
+            this.columnHeader9.Width = 98;
+            // 
+            // uiSparePartsUpperPanel
+            // 
+            this.uiSparePartsUpperPanel.Controls.Add(this.uiSparePartsYearlyRegime);
+            this.uiSparePartsUpperPanel.Controls.Add(this.label26);
+            this.uiSparePartsUpperPanel.Controls.Add(this.uiSparePartsAverage);
+            this.uiSparePartsUpperPanel.Controls.Add(this.label25);
+            this.uiSparePartsUpperPanel.Controls.Add(this.uiSparePartsGrid);
+            this.uiSparePartsUpperPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiSparePartsUpperPanel.Location = new System.Drawing.Point(0, 0);
+            this.uiSparePartsUpperPanel.Name = "uiSparePartsUpperPanel";
+            this.uiSparePartsUpperPanel.Size = new System.Drawing.Size(1185, 164);
+            this.uiSparePartsUpperPanel.TabIndex = 0;
+            // 
+            // uiSparePartsYearlyRegime
+            // 
+            this.uiSparePartsYearlyRegime.Location = new System.Drawing.Point(511, 33);
+            this.uiSparePartsYearlyRegime.Name = "uiSparePartsYearlyRegime";
+            this.uiSparePartsYearlyRegime.Size = new System.Drawing.Size(144, 23);
+            this.uiSparePartsYearlyRegime.TabIndex = 28;
+            this.uiSparePartsYearlyRegime.Text = "1600";
+            this.uiSparePartsYearlyRegime.TextChanged += new System.EventHandler(this.uiSparePartsYearlyRegime_TextChanged);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(508, 13);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(181, 17);
+            this.label26.TabIndex = 27;
+            this.label26.Text = "Годовой режим (часы\\год)";
+            // 
+            // uiSparePartsAverage
+            // 
+            this.uiSparePartsAverage.Location = new System.Drawing.Point(511, 79);
+            this.uiSparePartsAverage.Name = "uiSparePartsAverage";
+            this.uiSparePartsAverage.Size = new System.Drawing.Size(144, 23);
+            this.uiSparePartsAverage.TabIndex = 26;
+            this.uiSparePartsAverage.TextChanged += new System.EventHandler(this.uiSparePartsAverage_TextChanged);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(508, 59);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(175, 17);
+            this.label25.TabIndex = 25;
+            this.label25.Text = "Средняя стоимость (лей)";
+            // 
+            // uiSparePartsGrid
+            // 
+            this.uiSparePartsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.uiSparePartsGrid.Location = new System.Drawing.Point(8, 3);
+            this.uiSparePartsGrid.Name = "uiSparePartsGrid";
+            this.uiSparePartsGrid.Size = new System.Drawing.Size(484, 159);
+            this.uiSparePartsGrid.TabIndex = 24;
+            // 
+            // uiReportTabPage
+            // 
+            this.uiReportTabPage.Controls.Add(this.uiReportTestBtn);
+            this.uiReportTabPage.Location = new System.Drawing.Point(4, 25);
+            this.uiReportTabPage.Name = "uiReportTabPage";
+            this.uiReportTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.uiReportTabPage.Size = new System.Drawing.Size(1185, 578);
+            this.uiReportTabPage.TabIndex = 5;
+            this.uiReportTabPage.Text = "Отчет";
+            this.uiReportTabPage.UseVisualStyleBackColor = true;
+            // 
+            // uiReportTestBtn
+            // 
+            this.uiReportTestBtn.Location = new System.Drawing.Point(8, 6);
+            this.uiReportTestBtn.Name = "uiReportTestBtn";
+            this.uiReportTestBtn.Size = new System.Drawing.Size(75, 23);
+            this.uiReportTestBtn.TabIndex = 0;
+            this.uiReportTestBtn.Text = "Test";
+            this.uiReportTestBtn.UseVisualStyleBackColor = true;
+            this.uiReportTestBtn.Click += new System.EventHandler(this.uiReportTestBtn_Click);
+            // 
+            // uiVelocityText
+            // 
+            this.uiVelocityText.Location = new System.Drawing.Point(197, 30);
+            this.uiVelocityText.Name = "uiVelocityText";
+            this.uiVelocityText.Size = new System.Drawing.Size(144, 23);
+            this.uiVelocityText.TabIndex = 31;
+            this.uiVelocityText.Text = "40";
+            this.uiVelocityText.TextChanged += new System.EventHandler(this.uiVelocityText_TextChanged);
+            // 
+            // uiCargoCapacityText
+            // 
+            this.uiCargoCapacityText.Location = new System.Drawing.Point(197, 124);
+            this.uiCargoCapacityText.Name = "uiCargoCapacityText";
+            this.uiCargoCapacityText.Size = new System.Drawing.Size(144, 23);
+            this.uiCargoCapacityText.TabIndex = 32;
+            this.uiCargoCapacityText.Text = "10.20";
+            this.uiCargoCapacityText.TextChanged += new System.EventHandler(this.uiCargoCapacityText_TextChanged);
             // 
             // MainForm
             // 
@@ -1566,6 +1554,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "МАД Калькулятор";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.uiMainMenuStrip.ResumeLayout(false);
             this.uiMainMenuStrip.PerformLayout();
@@ -1580,8 +1569,6 @@
             this.uiTransportTopPanel.ResumeLayout(false);
             this.uiTransportTopPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiCarCountUd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiUpDownVelocity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiUpDownCargoCapacity)).EndInit();
             this.uiWheelsTabPage.ResumeLayout(false);
             this.uiWheelsBottomPanel.ResumeLayout(false);
             this.uiWheelsTopPanel.ResumeLayout(false);
@@ -1591,17 +1578,17 @@
             this.uiDriverBottomPanel.ResumeLayout(false);
             this.uiDriverTopPanel.ResumeLayout(false);
             this.uiDriverTopPanel.PerformLayout();
-            this.uiTabPageSpareParts.ResumeLayout(false);
-            this.uiReportTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uiDriversGrid)).EndInit();
-            this.uiSparePartsUpperPanel.ResumeLayout(false);
-            this.uiSparePartsUpperPanel.PerformLayout();
-            this.uiSparePartsLowerPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uiSparePartsGrid)).EndInit();
             this.uiCarCheckTab.ResumeLayout(false);
+            this.uiCarCheckBottomPanel.ResumeLayout(false);
             this.uiCarCheckUpperPanel.ResumeLayout(false);
             this.uiCarCheckUpperPanel.PerformLayout();
-            this.uiCarCheckBottomPanel.ResumeLayout(false);
+            this.uiTabPageSpareParts.ResumeLayout(false);
+            this.uiSparePartsLowerPanel.ResumeLayout(false);
+            this.uiSparePartsUpperPanel.ResumeLayout(false);
+            this.uiSparePartsUpperPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uiSparePartsGrid)).EndInit();
+            this.uiReportTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1626,7 +1613,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown uiUpDownCargoCapacity;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -1635,7 +1621,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox uiComboBoxMechModel;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown uiUpDownVelocity;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel1;
@@ -1646,7 +1631,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button uiAddCourseBtn;
         private System.Windows.Forms.Button uiClearCoursesBtn;
-        private System.Windows.Forms.Button uiDeleteCourseBtn;
         private System.Windows.Forms.TabPage uiReportTabPage;
         private System.Windows.Forms.Button uiReportTestBtn;
         private System.Windows.Forms.TextBox uiUnloadTime;
@@ -1694,7 +1678,7 @@
         private System.Windows.Forms.TextBox uiAmmortizationPerHour;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Panel uiDriverTopPanel;
-        private System.Windows.Forms.TextBox uiDriverAdditionAddText;
+        private System.Windows.Forms.TextBox uiDriverTrailerAddText;
         private System.Windows.Forms.TextBox uiDriverHolydaysAddText;
         private System.Windows.Forms.TextBox uiDriverEnsuranceAddText;
         private System.Windows.Forms.Panel uiDriverBottomPanel;
@@ -1737,9 +1721,9 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox uiCarCheckCU;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox uiCarCheckRtAdd;
-        private System.Windows.Forms.TextBox uiCarCheckCtAdd;
-        private System.Windows.Forms.TextBox uiCarCheckCuAdd;
+        private System.Windows.Forms.TextBox uiCarCheckRtTrailerAdd;
+        private System.Windows.Forms.TextBox uiCarCheckCtTrailerAdd;
+        private System.Windows.Forms.TextBox uiCarCheckCuTrailerAd;
         private System.Windows.Forms.TextBox uiCarCheckTarif;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label33;
@@ -1756,6 +1740,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader36;
         private System.Windows.Forms.TextBox uiCarCheckAvgSalary;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox uiVelocityText;
+        private System.Windows.Forms.TextBox uiCargoCapacityText;
     }
 }
 

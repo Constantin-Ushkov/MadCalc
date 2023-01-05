@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MadCalc
@@ -16,6 +13,20 @@ namespace MadCalc
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            using (var loginForm = new LoginForm())
+            {
+                if (loginForm.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                if (loginForm.PasswordHash != "1df1854015e31ca286d015345eaff29a6c6073f70984a3a746823d4cac16b075".ToUpper())
+                {
+                    return;
+                }
+            }
+
             Application.Run(new MainForm());
         }
     }
