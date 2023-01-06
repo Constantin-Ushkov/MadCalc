@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -293,6 +292,14 @@ namespace MadCalc
             uiWheelsSpendingsText.Text = ToString(GetWheelsTotalCost());
         }
 
+        private void uiDeleteWheelsBtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in uiWheelsGrid.SelectedRows)
+            {
+                uiWheelsGrid.Rows.RemoveAt(row.Index);
+            }
+        }
+
         private void uiWheelKms_TextChanged(object sender, EventArgs e)
         {
             if (_loadingInputState)
@@ -344,6 +351,14 @@ namespace MadCalc
 
             uiDriverSalaryHourly.Text = ToString(salaryHour);
             uiCarCheckAvgSalary.Text = ToString(CalcCarCheckAverageSalary());
+        }
+
+        private void uiDeleteDriverBtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in uiDriversGrid.SelectedRows)
+            {
+                uiDriversGrid.Rows.RemoveAt(row.Index);
+            }
         }
 
         private void uiDriverTarif_TextChanged(object sender, EventArgs e)
@@ -553,6 +568,14 @@ namespace MadCalc
             }
 
             uiSparePartsAverage.Text = ToString(averge);
+        }
+
+        private void uiSparePartsDeleteBtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in uiSparePartsGrid.SelectedRows)
+            {
+                uiSparePartsGrid.Rows.RemoveAt(row.Index);
+            }
         }
 
         private void uiSparePartsYearlyRegime_TextChanged(object sender, EventArgs e)
@@ -926,7 +949,6 @@ namespace MadCalc
         private BindingList<Wheel> _wheels = new BindingList<Wheel>() { AllowEdit = true, AllowNew = true };
         private BindingList<Driver> _drivers = new BindingList<Driver>() { AllowEdit = true, AllowNew = true };
         private BindingList<SpareParts> _spareParts = new BindingList<SpareParts>() { AllowEdit = true, AllowNew = true };
-        // private List<int> _courses = new List<int>();
         private bool _loadingInputState = true;
     }
 }

@@ -62,6 +62,8 @@
             this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader30 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.uiTransportTopPanel = new System.Windows.Forms.Panel();
+            this.uiCargoCapacityText = new System.Windows.Forms.TextBox();
+            this.uiVelocityText = new System.Windows.Forms.TextBox();
             this.uiAmmortizationPerHour = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -97,6 +99,7 @@
             this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.uiWheelsTopPanel = new System.Windows.Forms.Panel();
+            this.uiDeleteWheelsBtn = new System.Windows.Forms.Button();
             this.uiWheelsSpendingsText = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.uiWheelsGrid = new System.Windows.Forms.DataGridView();
@@ -173,8 +176,8 @@
             this.uiSparePartsGrid = new System.Windows.Forms.DataGridView();
             this.uiReportTabPage = new System.Windows.Forms.TabPage();
             this.uiReportTestBtn = new System.Windows.Forms.Button();
-            this.uiVelocityText = new System.Windows.Forms.TextBox();
-            this.uiCargoCapacityText = new System.Windows.Forms.TextBox();
+            this.uiDeleteDriverBtn = new System.Windows.Forms.Button();
+            this.uiSparePartsDeleteBtn = new System.Windows.Forms.Button();
             this.uiMainMenuStrip.SuspendLayout();
             this.uiMainToolStrip.SuspendLayout();
             this.uiTabControl.SuspendLayout();
@@ -510,6 +513,24 @@
             this.uiTransportTopPanel.Size = new System.Drawing.Size(1179, 164);
             this.uiTransportTopPanel.TabIndex = 29;
             // 
+            // uiCargoCapacityText
+            // 
+            this.uiCargoCapacityText.Location = new System.Drawing.Point(197, 124);
+            this.uiCargoCapacityText.Name = "uiCargoCapacityText";
+            this.uiCargoCapacityText.Size = new System.Drawing.Size(144, 23);
+            this.uiCargoCapacityText.TabIndex = 32;
+            this.uiCargoCapacityText.Text = "10.20";
+            this.uiCargoCapacityText.TextChanged += new System.EventHandler(this.uiCargoCapacityText_TextChanged);
+            // 
+            // uiVelocityText
+            // 
+            this.uiVelocityText.Location = new System.Drawing.Point(197, 30);
+            this.uiVelocityText.Name = "uiVelocityText";
+            this.uiVelocityText.Size = new System.Drawing.Size(144, 23);
+            this.uiVelocityText.TabIndex = 31;
+            this.uiVelocityText.Text = "40";
+            this.uiVelocityText.TextChanged += new System.EventHandler(this.uiVelocityText_TextChanged);
+            // 
             // uiAmmortizationPerHour
             // 
             this.uiAmmortizationPerHour.Location = new System.Drawing.Point(986, 29);
@@ -828,6 +849,7 @@
             // 
             // uiWheelsTopPanel
             // 
+            this.uiWheelsTopPanel.Controls.Add(this.uiDeleteWheelsBtn);
             this.uiWheelsTopPanel.Controls.Add(this.uiWheelsSpendingsText);
             this.uiWheelsTopPanel.Controls.Add(this.label20);
             this.uiWheelsTopPanel.Controls.Add(this.uiWheelsGrid);
@@ -839,9 +861,19 @@
             this.uiWheelsTopPanel.Size = new System.Drawing.Size(1185, 164);
             this.uiWheelsTopPanel.TabIndex = 3;
             // 
+            // uiDeleteWheelsBtn
+            // 
+            this.uiDeleteWheelsBtn.Location = new System.Drawing.Point(656, 3);
+            this.uiDeleteWheelsBtn.Name = "uiDeleteWheelsBtn";
+            this.uiDeleteWheelsBtn.Size = new System.Drawing.Size(23, 23);
+            this.uiDeleteWheelsBtn.TabIndex = 5;
+            this.uiDeleteWheelsBtn.Text = "X";
+            this.uiDeleteWheelsBtn.UseVisualStyleBackColor = true;
+            this.uiDeleteWheelsBtn.Click += new System.EventHandler(this.uiDeleteWheelsBtn_Click);
+            // 
             // uiWheelsSpendingsText
             // 
-            this.uiWheelsSpendingsText.Location = new System.Drawing.Point(659, 85);
+            this.uiWheelsSpendingsText.Location = new System.Drawing.Point(696, 93);
             this.uiWheelsSpendingsText.Name = "uiWheelsSpendingsText";
             this.uiWheelsSpendingsText.Size = new System.Drawing.Size(175, 23);
             this.uiWheelsSpendingsText.TabIndex = 4;
@@ -851,7 +883,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(656, 65);
+            this.label20.Location = new System.Drawing.Point(693, 73);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(102, 17);
             this.label20.TabIndex = 3;
@@ -862,13 +894,14 @@
             this.uiWheelsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uiWheelsGrid.Location = new System.Drawing.Point(0, 0);
             this.uiWheelsGrid.Name = "uiWheelsGrid";
+            this.uiWheelsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.uiWheelsGrid.Size = new System.Drawing.Size(650, 161);
             this.uiWheelsGrid.TabIndex = 0;
             this.uiWheelsGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.uiWheelsGrid_CellValidating);
             // 
             // uiWheelKms
             // 
-            this.uiWheelKms.Location = new System.Drawing.Point(659, 29);
+            this.uiWheelKms.Location = new System.Drawing.Point(696, 37);
             this.uiWheelKms.Name = "uiWheelKms";
             this.uiWheelKms.Size = new System.Drawing.Size(175, 23);
             this.uiWheelKms.TabIndex = 2;
@@ -878,7 +911,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(656, 9);
+            this.label18.Location = new System.Drawing.Point(693, 17);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(178, 17);
             this.label18.TabIndex = 1;
@@ -950,6 +983,7 @@
             // 
             // uiDriverTopPanel
             // 
+            this.uiDriverTopPanel.Controls.Add(this.uiDeleteDriverBtn);
             this.uiDriverTopPanel.Controls.Add(this.uiDriverTarif);
             this.uiDriverTopPanel.Controls.Add(this.label24);
             this.uiDriverTopPanel.Controls.Add(this.uiDriverSalaryHourly);
@@ -977,7 +1011,7 @@
             // 
             // uiDriverTarif
             // 
-            this.uiDriverTarif.Location = new System.Drawing.Point(513, 29);
+            this.uiDriverTarif.Location = new System.Drawing.Point(535, 28);
             this.uiDriverTarif.Name = "uiDriverTarif";
             this.uiDriverTarif.Size = new System.Drawing.Size(144, 23);
             this.uiDriverTarif.TabIndex = 29;
@@ -987,7 +1021,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(510, 9);
+            this.label24.Location = new System.Drawing.Point(532, 8);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(52, 17);
             this.label24.TabIndex = 28;
@@ -995,7 +1029,7 @@
             // 
             // uiDriverSalaryHourly
             // 
-            this.uiDriverSalaryHourly.Location = new System.Drawing.Point(941, 121);
+            this.uiDriverSalaryHourly.Location = new System.Drawing.Point(963, 120);
             this.uiDriverSalaryHourly.Name = "uiDriverSalaryHourly";
             this.uiDriverSalaryHourly.Size = new System.Drawing.Size(144, 23);
             this.uiDriverSalaryHourly.TabIndex = 27;
@@ -1005,7 +1039,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(938, 101);
+            this.label23.Location = new System.Drawing.Point(960, 100);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(110, 17);
             this.label23.TabIndex = 26;
@@ -1013,7 +1047,7 @@
             // 
             // uiDriverClassAverageText
             // 
-            this.uiDriverClassAverageText.Location = new System.Drawing.Point(941, 75);
+            this.uiDriverClassAverageText.Location = new System.Drawing.Point(963, 74);
             this.uiDriverClassAverageText.Name = "uiDriverClassAverageText";
             this.uiDriverClassAverageText.Size = new System.Drawing.Size(144, 23);
             this.uiDriverClassAverageText.TabIndex = 25;
@@ -1022,7 +1056,7 @@
             // 
             // uiDriverExpAverageText
             // 
-            this.uiDriverExpAverageText.Location = new System.Drawing.Point(941, 29);
+            this.uiDriverExpAverageText.Location = new System.Drawing.Point(963, 28);
             this.uiDriverExpAverageText.Name = "uiDriverExpAverageText";
             this.uiDriverExpAverageText.Size = new System.Drawing.Size(144, 23);
             this.uiDriverExpAverageText.TabIndex = 24;
@@ -1034,12 +1068,13 @@
             this.uiDriversGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uiDriversGrid.Location = new System.Drawing.Point(5, 2);
             this.uiDriversGrid.Name = "uiDriversGrid";
+            this.uiDriversGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.uiDriversGrid.Size = new System.Drawing.Size(484, 159);
             this.uiDriversGrid.TabIndex = 23;
             // 
             // uiDriverPremiumAddText
             // 
-            this.uiDriverPremiumAddText.Location = new System.Drawing.Point(723, 29);
+            this.uiDriverPremiumAddText.Location = new System.Drawing.Point(745, 28);
             this.uiDriverPremiumAddText.Name = "uiDriverPremiumAddText";
             this.uiDriverPremiumAddText.Size = new System.Drawing.Size(144, 23);
             this.uiDriverPremiumAddText.TabIndex = 22;
@@ -1049,7 +1084,7 @@
             // uiDriverPremiumAddLabel
             // 
             this.uiDriverPremiumAddLabel.AutoSize = true;
-            this.uiDriverPremiumAddLabel.Location = new System.Drawing.Point(720, 9);
+            this.uiDriverPremiumAddLabel.Location = new System.Drawing.Point(742, 8);
             this.uiDriverPremiumAddLabel.Name = "uiDriverPremiumAddLabel";
             this.uiDriverPremiumAddLabel.Size = new System.Drawing.Size(59, 17);
             this.uiDriverPremiumAddLabel.TabIndex = 21;
@@ -1057,7 +1092,7 @@
             // 
             // uiDriverSpecialGearAdd
             // 
-            this.uiDriverSpecialGearAdd.Location = new System.Drawing.Point(513, 121);
+            this.uiDriverSpecialGearAdd.Location = new System.Drawing.Point(535, 120);
             this.uiDriverSpecialGearAdd.Name = "uiDriverSpecialGearAdd";
             this.uiDriverSpecialGearAdd.Size = new System.Drawing.Size(144, 23);
             this.uiDriverSpecialGearAdd.TabIndex = 20;
@@ -1067,7 +1102,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(510, 101);
+            this.label22.Location = new System.Drawing.Point(532, 100);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(182, 17);
             this.label22.TabIndex = 19;
@@ -1075,7 +1110,7 @@
             // 
             // uiDriverTrailerAddText
             // 
-            this.uiDriverTrailerAddText.Location = new System.Drawing.Point(513, 75);
+            this.uiDriverTrailerAddText.Location = new System.Drawing.Point(535, 74);
             this.uiDriverTrailerAddText.Name = "uiDriverTrailerAddText";
             this.uiDriverTrailerAddText.Size = new System.Drawing.Size(144, 23);
             this.uiDriverTrailerAddText.TabIndex = 18;
@@ -1084,7 +1119,7 @@
             // 
             // uiDriverHolydaysAddText
             // 
-            this.uiDriverHolydaysAddText.Location = new System.Drawing.Point(723, 121);
+            this.uiDriverHolydaysAddText.Location = new System.Drawing.Point(745, 120);
             this.uiDriverHolydaysAddText.Name = "uiDriverHolydaysAddText";
             this.uiDriverHolydaysAddText.Size = new System.Drawing.Size(144, 23);
             this.uiDriverHolydaysAddText.TabIndex = 17;
@@ -1093,7 +1128,7 @@
             // 
             // uiDriverEnsuranceAddText
             // 
-            this.uiDriverEnsuranceAddText.Location = new System.Drawing.Point(723, 75);
+            this.uiDriverEnsuranceAddText.Location = new System.Drawing.Point(745, 74);
             this.uiDriverEnsuranceAddText.Name = "uiDriverEnsuranceAddText";
             this.uiDriverEnsuranceAddText.Size = new System.Drawing.Size(144, 23);
             this.uiDriverEnsuranceAddText.TabIndex = 16;
@@ -1103,7 +1138,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(510, 55);
+            this.label10.Location = new System.Drawing.Point(532, 54);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(143, 17);
             this.label10.TabIndex = 11;
@@ -1112,7 +1147,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(938, 55);
+            this.label6.Location = new System.Drawing.Point(960, 54);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(177, 17);
             this.label6.TabIndex = 3;
@@ -1121,7 +1156,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(720, 101);
+            this.label9.Location = new System.Drawing.Point(742, 100);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(171, 17);
             this.label9.TabIndex = 9;
@@ -1130,7 +1165,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(938, 9);
+            this.label7.Location = new System.Drawing.Point(960, 8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(171, 17);
             this.label7.TabIndex = 5;
@@ -1139,7 +1174,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(720, 55);
+            this.label8.Location = new System.Drawing.Point(742, 54);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 17);
             this.label8.TabIndex = 7;
@@ -1449,6 +1484,7 @@
             // 
             // uiSparePartsUpperPanel
             // 
+            this.uiSparePartsUpperPanel.Controls.Add(this.uiSparePartsDeleteBtn);
             this.uiSparePartsUpperPanel.Controls.Add(this.uiSparePartsYearlyRegime);
             this.uiSparePartsUpperPanel.Controls.Add(this.label26);
             this.uiSparePartsUpperPanel.Controls.Add(this.uiSparePartsAverage);
@@ -1462,7 +1498,7 @@
             // 
             // uiSparePartsYearlyRegime
             // 
-            this.uiSparePartsYearlyRegime.Location = new System.Drawing.Point(511, 33);
+            this.uiSparePartsYearlyRegime.Location = new System.Drawing.Point(540, 40);
             this.uiSparePartsYearlyRegime.Name = "uiSparePartsYearlyRegime";
             this.uiSparePartsYearlyRegime.Size = new System.Drawing.Size(144, 23);
             this.uiSparePartsYearlyRegime.TabIndex = 28;
@@ -1472,7 +1508,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(508, 13);
+            this.label26.Location = new System.Drawing.Point(537, 20);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(181, 17);
             this.label26.TabIndex = 27;
@@ -1480,7 +1516,7 @@
             // 
             // uiSparePartsAverage
             // 
-            this.uiSparePartsAverage.Location = new System.Drawing.Point(511, 79);
+            this.uiSparePartsAverage.Location = new System.Drawing.Point(540, 86);
             this.uiSparePartsAverage.Name = "uiSparePartsAverage";
             this.uiSparePartsAverage.Size = new System.Drawing.Size(144, 23);
             this.uiSparePartsAverage.TabIndex = 26;
@@ -1489,7 +1525,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(508, 59);
+            this.label25.Location = new System.Drawing.Point(537, 66);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(175, 17);
             this.label25.TabIndex = 25;
@@ -1500,6 +1536,7 @@
             this.uiSparePartsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uiSparePartsGrid.Location = new System.Drawing.Point(8, 3);
             this.uiSparePartsGrid.Name = "uiSparePartsGrid";
+            this.uiSparePartsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.uiSparePartsGrid.Size = new System.Drawing.Size(484, 159);
             this.uiSparePartsGrid.TabIndex = 24;
             // 
@@ -1524,23 +1561,25 @@
             this.uiReportTestBtn.UseVisualStyleBackColor = true;
             this.uiReportTestBtn.Click += new System.EventHandler(this.uiReportTestBtn_Click);
             // 
-            // uiVelocityText
+            // uiDeleteDriverBtn
             // 
-            this.uiVelocityText.Location = new System.Drawing.Point(197, 30);
-            this.uiVelocityText.Name = "uiVelocityText";
-            this.uiVelocityText.Size = new System.Drawing.Size(144, 23);
-            this.uiVelocityText.TabIndex = 31;
-            this.uiVelocityText.Text = "40";
-            this.uiVelocityText.TextChanged += new System.EventHandler(this.uiVelocityText_TextChanged);
+            this.uiDeleteDriverBtn.Location = new System.Drawing.Point(495, 9);
+            this.uiDeleteDriverBtn.Name = "uiDeleteDriverBtn";
+            this.uiDeleteDriverBtn.Size = new System.Drawing.Size(23, 23);
+            this.uiDeleteDriverBtn.TabIndex = 30;
+            this.uiDeleteDriverBtn.Text = "X";
+            this.uiDeleteDriverBtn.UseVisualStyleBackColor = true;
+            this.uiDeleteDriverBtn.Click += new System.EventHandler(this.uiDeleteDriverBtn_Click);
             // 
-            // uiCargoCapacityText
+            // uiSparePartsDeleteBtn
             // 
-            this.uiCargoCapacityText.Location = new System.Drawing.Point(197, 124);
-            this.uiCargoCapacityText.Name = "uiCargoCapacityText";
-            this.uiCargoCapacityText.Size = new System.Drawing.Size(144, 23);
-            this.uiCargoCapacityText.TabIndex = 32;
-            this.uiCargoCapacityText.Text = "10.20";
-            this.uiCargoCapacityText.TextChanged += new System.EventHandler(this.uiCargoCapacityText_TextChanged);
+            this.uiSparePartsDeleteBtn.Location = new System.Drawing.Point(498, 12);
+            this.uiSparePartsDeleteBtn.Name = "uiSparePartsDeleteBtn";
+            this.uiSparePartsDeleteBtn.Size = new System.Drawing.Size(23, 23);
+            this.uiSparePartsDeleteBtn.TabIndex = 31;
+            this.uiSparePartsDeleteBtn.Text = "X";
+            this.uiSparePartsDeleteBtn.UseVisualStyleBackColor = true;
+            this.uiSparePartsDeleteBtn.Click += new System.EventHandler(this.uiSparePartsDeleteBtn_Click);
             // 
             // MainForm
             // 
@@ -1742,6 +1781,9 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.TextBox uiVelocityText;
         private System.Windows.Forms.TextBox uiCargoCapacityText;
+        private System.Windows.Forms.Button uiDeleteWheelsBtn;
+        private System.Windows.Forms.Button uiDeleteDriverBtn;
+        private System.Windows.Forms.Button uiSparePartsDeleteBtn;
     }
 }
 
