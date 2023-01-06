@@ -114,6 +114,7 @@
             this.columnHeader29 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.uiDriverTopPanel = new System.Windows.Forms.Panel();
+            this.uiDeleteDriverBtn = new System.Windows.Forms.Button();
             this.uiDriverTarif = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.uiDriverSalaryHourly = new System.Windows.Forms.TextBox();
@@ -169,15 +170,33 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.uiSparePartsUpperPanel = new System.Windows.Forms.Panel();
+            this.uiSparePartsDeleteBtn = new System.Windows.Forms.Button();
             this.uiSparePartsYearlyRegime = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.uiSparePartsAverage = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.uiSparePartsGrid = new System.Windows.Forms.DataGridView();
             this.uiReportTabPage = new System.Windows.Forms.TabPage();
-            this.uiReportTestBtn = new System.Windows.Forms.Button();
-            this.uiDeleteDriverBtn = new System.Windows.Forms.Button();
-            this.uiSparePartsDeleteBtn = new System.Windows.Forms.Button();
+            this.uiReportLeftPanel = new System.Windows.Forms.Panel();
+            this.uiReportText = new System.Windows.Forms.RichTextBox();
+            this.uiReportRightPanel = new System.Windows.Forms.Panel();
+            this.uiCreateReportBtn = new System.Windows.Forms.Button();
+            this.uiCopyReportBtn = new System.Windows.Forms.Button();
+            this.uiTransportName = new System.Windows.Forms.Label();
+            this.uiTransportNameText = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.uiCargoName = new System.Windows.Forms.TextBox();
+            this.columnHeader37 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label36 = new System.Windows.Forms.Label();
+            this.uiDauComboBox = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.uiSectorsText = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.uiFuelBillDate = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.uiLoadUnloadType = new System.Windows.Forms.ComboBox();
             this.uiMainMenuStrip.SuspendLayout();
             this.uiMainToolStrip.SuspendLayout();
             this.uiTabControl.SuspendLayout();
@@ -204,6 +223,10 @@
             this.uiSparePartsUpperPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiSparePartsGrid)).BeginInit();
             this.uiReportTabPage.SuspendLayout();
+            this.uiReportLeftPanel.SuspendLayout();
+            this.uiReportRightPanel.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiStatusStrip
@@ -307,7 +330,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.uiCourses);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -320,14 +344,15 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader11});
+            this.columnHeader11,
+            this.columnHeader37});
             this.uiCourses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiCourses.FullRowSelect = true;
             this.uiCourses.GridLines = true;
             this.uiCourses.HideSelection = false;
             this.uiCourses.Location = new System.Drawing.Point(0, 0);
             this.uiCourses.Name = "uiCourses";
-            this.uiCourses.Size = new System.Drawing.Size(999, 578);
+            this.uiCourses.Size = new System.Drawing.Size(999, 414);
             this.uiCourses.TabIndex = 1;
             this.uiCourses.UseCompatibleStateImageBehavior = false;
             this.uiCourses.View = System.Windows.Forms.View.Details;
@@ -349,7 +374,8 @@
             // 
             // columnHeader11
             // 
-            this.columnHeader11.Text = "время";
+            this.columnHeader11.Text = "время в пути";
+            this.columnHeader11.Width = 100;
             // 
             // panel1
             // 
@@ -479,6 +505,14 @@
             // 
             // uiTransportTopPanel
             // 
+            this.uiTransportTopPanel.Controls.Add(this.uiLoadUnloadType);
+            this.uiTransportTopPanel.Controls.Add(this.label39);
+            this.uiTransportTopPanel.Controls.Add(this.uiFuelBillDate);
+            this.uiTransportTopPanel.Controls.Add(this.label38);
+            this.uiTransportTopPanel.Controls.Add(this.uiCargoName);
+            this.uiTransportTopPanel.Controls.Add(this.label35);
+            this.uiTransportTopPanel.Controls.Add(this.uiTransportNameText);
+            this.uiTransportTopPanel.Controls.Add(this.uiTransportName);
             this.uiTransportTopPanel.Controls.Add(this.uiCargoCapacityText);
             this.uiTransportTopPanel.Controls.Add(this.uiVelocityText);
             this.uiTransportTopPanel.Controls.Add(this.uiAmmortizationPerHour);
@@ -515,7 +549,7 @@
             // 
             // uiCargoCapacityText
             // 
-            this.uiCargoCapacityText.Location = new System.Drawing.Point(197, 124);
+            this.uiCargoCapacityText.Location = new System.Drawing.Point(197, 77);
             this.uiCargoCapacityText.Name = "uiCargoCapacityText";
             this.uiCargoCapacityText.Size = new System.Drawing.Size(144, 23);
             this.uiCargoCapacityText.TabIndex = 32;
@@ -595,9 +629,9 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(782, 56);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(179, 17);
+            this.label17.Size = new System.Drawing.Size(88, 17);
             this.label17.TabIndex = 24;
-            this.label17.Text = "Возраст (коэффициент%)";
+            this.label17.Text = "Возраст (%)";
             // 
             // uiWinter
             // 
@@ -635,9 +669,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(782, 9);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(159, 17);
+            this.label16.Size = new System.Drawing.Size(68, 17);
             this.label16.TabIndex = 23;
-            this.label16.Text = "Зима (коэффициент%)";
+            this.label16.Text = "Зима (%)";
             // 
             // label11
             // 
@@ -686,7 +720,7 @@
             // 
             // uiOilConsumptionPercent
             // 
-            this.uiOilConsumptionPercent.Location = new System.Drawing.Point(381, 124);
+            this.uiOilConsumptionPercent.Location = new System.Drawing.Point(578, 125);
             this.uiOilConsumptionPercent.Name = "uiOilConsumptionPercent";
             this.uiOilConsumptionPercent.Size = new System.Drawing.Size(144, 23);
             this.uiOilConsumptionPercent.TabIndex = 20;
@@ -715,7 +749,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(378, 103);
+            this.label15.Location = new System.Drawing.Point(575, 104);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(167, 17);
             this.label15.TabIndex = 19;
@@ -733,7 +767,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(194, 55);
+            this.label14.Location = new System.Drawing.Point(194, 104);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(171, 17);
             this.label14.TabIndex = 12;
@@ -750,7 +784,7 @@
             // 
             // uiUnloadTime
             // 
-            this.uiUnloadTime.Location = new System.Drawing.Point(197, 77);
+            this.uiUnloadTime.Location = new System.Drawing.Point(197, 126);
             this.uiUnloadTime.Name = "uiUnloadTime";
             this.uiUnloadTime.Size = new System.Drawing.Size(144, 23);
             this.uiUnloadTime.TabIndex = 14;
@@ -769,7 +803,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(194, 103);
+            this.label4.Location = new System.Drawing.Point(194, 56);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(178, 17);
             this.label4.TabIndex = 6;
@@ -1008,6 +1042,16 @@
             this.uiDriverTopPanel.Name = "uiDriverTopPanel";
             this.uiDriverTopPanel.Size = new System.Drawing.Size(1179, 164);
             this.uiDriverTopPanel.TabIndex = 13;
+            // 
+            // uiDeleteDriverBtn
+            // 
+            this.uiDeleteDriverBtn.Location = new System.Drawing.Point(495, 9);
+            this.uiDeleteDriverBtn.Name = "uiDeleteDriverBtn";
+            this.uiDeleteDriverBtn.Size = new System.Drawing.Size(23, 23);
+            this.uiDeleteDriverBtn.TabIndex = 30;
+            this.uiDeleteDriverBtn.Text = "X";
+            this.uiDeleteDriverBtn.UseVisualStyleBackColor = true;
+            this.uiDeleteDriverBtn.Click += new System.EventHandler(this.uiDeleteDriverBtn_Click);
             // 
             // uiDriverTarif
             // 
@@ -1496,6 +1540,16 @@
             this.uiSparePartsUpperPanel.Size = new System.Drawing.Size(1185, 164);
             this.uiSparePartsUpperPanel.TabIndex = 0;
             // 
+            // uiSparePartsDeleteBtn
+            // 
+            this.uiSparePartsDeleteBtn.Location = new System.Drawing.Point(498, 12);
+            this.uiSparePartsDeleteBtn.Name = "uiSparePartsDeleteBtn";
+            this.uiSparePartsDeleteBtn.Size = new System.Drawing.Size(23, 23);
+            this.uiSparePartsDeleteBtn.TabIndex = 31;
+            this.uiSparePartsDeleteBtn.Text = "X";
+            this.uiSparePartsDeleteBtn.UseVisualStyleBackColor = true;
+            this.uiSparePartsDeleteBtn.Click += new System.EventHandler(this.uiSparePartsDeleteBtn_Click);
+            // 
             // uiSparePartsYearlyRegime
             // 
             this.uiSparePartsYearlyRegime.Location = new System.Drawing.Point(540, 40);
@@ -1542,7 +1596,8 @@
             // 
             // uiReportTabPage
             // 
-            this.uiReportTabPage.Controls.Add(this.uiReportTestBtn);
+            this.uiReportTabPage.Controls.Add(this.uiReportLeftPanel);
+            this.uiReportTabPage.Controls.Add(this.uiReportRightPanel);
             this.uiReportTabPage.Location = new System.Drawing.Point(4, 25);
             this.uiReportTabPage.Name = "uiReportTabPage";
             this.uiReportTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -1551,35 +1606,201 @@
             this.uiReportTabPage.Text = "Отчет";
             this.uiReportTabPage.UseVisualStyleBackColor = true;
             // 
-            // uiReportTestBtn
+            // uiReportLeftPanel
             // 
-            this.uiReportTestBtn.Location = new System.Drawing.Point(8, 6);
-            this.uiReportTestBtn.Name = "uiReportTestBtn";
-            this.uiReportTestBtn.Size = new System.Drawing.Size(75, 23);
-            this.uiReportTestBtn.TabIndex = 0;
-            this.uiReportTestBtn.Text = "Test";
-            this.uiReportTestBtn.UseVisualStyleBackColor = true;
-            this.uiReportTestBtn.Click += new System.EventHandler(this.uiReportTestBtn_Click);
+            this.uiReportLeftPanel.Controls.Add(this.uiReportText);
+            this.uiReportLeftPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiReportLeftPanel.Location = new System.Drawing.Point(3, 3);
+            this.uiReportLeftPanel.Name = "uiReportLeftPanel";
+            this.uiReportLeftPanel.Size = new System.Drawing.Size(993, 572);
+            this.uiReportLeftPanel.TabIndex = 2;
             // 
-            // uiDeleteDriverBtn
+            // uiReportText
             // 
-            this.uiDeleteDriverBtn.Location = new System.Drawing.Point(495, 9);
-            this.uiDeleteDriverBtn.Name = "uiDeleteDriverBtn";
-            this.uiDeleteDriverBtn.Size = new System.Drawing.Size(23, 23);
-            this.uiDeleteDriverBtn.TabIndex = 30;
-            this.uiDeleteDriverBtn.Text = "X";
-            this.uiDeleteDriverBtn.UseVisualStyleBackColor = true;
-            this.uiDeleteDriverBtn.Click += new System.EventHandler(this.uiDeleteDriverBtn_Click);
+            this.uiReportText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiReportText.Location = new System.Drawing.Point(0, 0);
+            this.uiReportText.Name = "uiReportText";
+            this.uiReportText.Size = new System.Drawing.Size(993, 572);
+            this.uiReportText.TabIndex = 0;
+            this.uiReportText.Text = "";
             // 
-            // uiSparePartsDeleteBtn
+            // uiReportRightPanel
             // 
-            this.uiSparePartsDeleteBtn.Location = new System.Drawing.Point(498, 12);
-            this.uiSparePartsDeleteBtn.Name = "uiSparePartsDeleteBtn";
-            this.uiSparePartsDeleteBtn.Size = new System.Drawing.Size(23, 23);
-            this.uiSparePartsDeleteBtn.TabIndex = 31;
-            this.uiSparePartsDeleteBtn.Text = "X";
-            this.uiSparePartsDeleteBtn.UseVisualStyleBackColor = true;
-            this.uiSparePartsDeleteBtn.Click += new System.EventHandler(this.uiSparePartsDeleteBtn_Click);
+            this.uiReportRightPanel.Controls.Add(this.uiCopyReportBtn);
+            this.uiReportRightPanel.Controls.Add(this.uiCreateReportBtn);
+            this.uiReportRightPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.uiReportRightPanel.Location = new System.Drawing.Point(996, 3);
+            this.uiReportRightPanel.Name = "uiReportRightPanel";
+            this.uiReportRightPanel.Size = new System.Drawing.Size(186, 572);
+            this.uiReportRightPanel.TabIndex = 1;
+            // 
+            // uiCreateReportBtn
+            // 
+            this.uiCreateReportBtn.Location = new System.Drawing.Point(6, 3);
+            this.uiCreateReportBtn.Name = "uiCreateReportBtn";
+            this.uiCreateReportBtn.Size = new System.Drawing.Size(172, 23);
+            this.uiCreateReportBtn.TabIndex = 0;
+            this.uiCreateReportBtn.Text = "Создать Отчет";
+            this.uiCreateReportBtn.UseVisualStyleBackColor = true;
+            this.uiCreateReportBtn.Click += new System.EventHandler(this.uiCreateReportBtn_Click);
+            // 
+            // uiCopyReportBtn
+            // 
+            this.uiCopyReportBtn.Location = new System.Drawing.Point(6, 32);
+            this.uiCopyReportBtn.Name = "uiCopyReportBtn";
+            this.uiCopyReportBtn.Size = new System.Drawing.Size(172, 23);
+            this.uiCopyReportBtn.TabIndex = 1;
+            this.uiCopyReportBtn.Text = "Копировать";
+            this.uiCopyReportBtn.UseVisualStyleBackColor = true;
+            this.uiCopyReportBtn.Click += new System.EventHandler(this.uiCopyReportBtn_Click);
+            // 
+            // uiTransportName
+            // 
+            this.uiTransportName.AutoSize = true;
+            this.uiTransportName.Location = new System.Drawing.Point(983, 104);
+            this.uiTransportName.Name = "uiTransportName";
+            this.uiTransportName.Size = new System.Drawing.Size(164, 17);
+            this.uiTransportName.TabIndex = 33;
+            this.uiTransportName.Text = "Наименование машины";
+            // 
+            // uiTransportNameText
+            // 
+            this.uiTransportNameText.Location = new System.Drawing.Point(986, 123);
+            this.uiTransportNameText.Name = "uiTransportNameText";
+            this.uiTransportNameText.Size = new System.Drawing.Size(144, 23);
+            this.uiTransportNameText.TabIndex = 34;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(983, 56);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(145, 17);
+            this.label35.TabIndex = 35;
+            this.label35.Text = "Наименование груза";
+            // 
+            // uiCargoName
+            // 
+            this.uiCargoName.Location = new System.Drawing.Point(986, 78);
+            this.uiCargoName.Name = "uiCargoName";
+            this.uiCargoName.Size = new System.Drawing.Size(144, 23);
+            this.uiCargoName.TabIndex = 36;
+            // 
+            // columnHeader37
+            // 
+            this.columnHeader37.Text = "общий тоннаж";
+            this.columnHeader37.Width = 111;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.uiSectorsText);
+            this.panel3.Controls.Add(this.label37);
+            this.panel3.Controls.Add(this.uiDauComboBox);
+            this.panel3.Controls.Add(this.label36);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(999, 164);
+            this.panel3.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.uiCourses);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 164);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(999, 414);
+            this.panel4.TabIndex = 3;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(8, 9);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(37, 17);
+            this.label36.TabIndex = 0;
+            this.label36.Text = "ДЭУ";
+            // 
+            // uiDauComboBox
+            // 
+            this.uiDauComboBox.FormattingEnabled = true;
+            this.uiDauComboBox.Items.AddRange(new object[] {
+            "S.A. \"Drumuri Balti\"",
+            "S.A. \"Drumuri Cahul\"",
+            "S.A. \"Drumuri Causheni\"",
+            "S.A. \"Drumuri Cimishlia\"",
+            "S.A. \"Drumuri Comrat\"",
+            "S.A. \"Drumuri Criuleni\"",
+            "S.A. \"Drumuri Edineti\"",
+            "S.A. \"Drumuri Briceni\"",
+            "S.A. \"Drumuri Ialoveni\"",
+            "S.A. \"Drumuri Orhei\"",
+            "S.A. \"Drumuri Rishcani\"",
+            "S.A. \"Drumuri Soroca\"",
+            "S.A. \"Drumuri Strasheni\""});
+            this.uiDauComboBox.Location = new System.Drawing.Point(11, 31);
+            this.uiDauComboBox.Name = "uiDauComboBox";
+            this.uiDauComboBox.Size = new System.Drawing.Size(191, 24);
+            this.uiDauComboBox.TabIndex = 1;
+            this.uiDauComboBox.SelectedIndexChanged += new System.EventHandler(this.uiDauComboBox_SelectedIndexChanged);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(240, 9);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(63, 17);
+            this.label37.TabIndex = 2;
+            this.label37.Text = "Сектора";
+            // 
+            // uiSectorsText
+            // 
+            this.uiSectorsText.Location = new System.Drawing.Point(243, 31);
+            this.uiSectorsText.Name = "uiSectorsText";
+            this.uiSectorsText.Size = new System.Drawing.Size(323, 23);
+            this.uiSectorsText.TabIndex = 3;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(782, 104);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(104, 17);
+            this.label38.TabIndex = 37;
+            this.label38.Text = "Дата фактуры";
+            // 
+            // uiFuelBillDate
+            // 
+            this.uiFuelBillDate.Location = new System.Drawing.Point(785, 124);
+            this.uiFuelBillDate.Name = "uiFuelBillDate";
+            this.uiFuelBillDate.Size = new System.Drawing.Size(144, 23);
+            this.uiFuelBillDate.TabIndex = 38;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(378, 104);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(138, 17);
+            this.label39.TabIndex = 39;
+            this.label39.Text = "Разгрузка\\Погрузка";
+            // 
+            // uiLoadUnloadType
+            // 
+            this.uiLoadUnloadType.FormattingEnabled = true;
+            this.uiLoadUnloadType.Items.AddRange(new object[] {
+            "Incarc. meh.",
+            "Discarc. meh.",
+            "Incarc. man.",
+            "Discarc. man.",
+            "Incarc. meh., Dicarc. meh.",
+            "Incarc. man., Discarc. meh.",
+            "Incarc. meh., Discarc. man.",
+            "Incarc. man., Discarc. man."});
+            this.uiLoadUnloadType.Location = new System.Drawing.Point(381, 126);
+            this.uiLoadUnloadType.Name = "uiLoadUnloadType";
+            this.uiLoadUnloadType.Size = new System.Drawing.Size(144, 24);
+            this.uiLoadUnloadType.TabIndex = 40;
             // 
             // MainForm
             // 
@@ -1628,6 +1849,11 @@
             this.uiSparePartsUpperPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiSparePartsGrid)).EndInit();
             this.uiReportTabPage.ResumeLayout(false);
+            this.uiReportLeftPanel.ResumeLayout(false);
+            this.uiReportRightPanel.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1671,7 +1897,6 @@
         private System.Windows.Forms.Button uiAddCourseBtn;
         private System.Windows.Forms.Button uiClearCoursesBtn;
         private System.Windows.Forms.TabPage uiReportTabPage;
-        private System.Windows.Forms.Button uiReportTestBtn;
         private System.Windows.Forms.TextBox uiUnloadTime;
         private System.Windows.Forms.TextBox uiOilPrice;
         private System.Windows.Forms.Label label12;
@@ -1784,6 +2009,26 @@
         private System.Windows.Forms.Button uiDeleteWheelsBtn;
         private System.Windows.Forms.Button uiDeleteDriverBtn;
         private System.Windows.Forms.Button uiSparePartsDeleteBtn;
+        private System.Windows.Forms.Panel uiReportRightPanel;
+        private System.Windows.Forms.Button uiCreateReportBtn;
+        private System.Windows.Forms.Panel uiReportLeftPanel;
+        private System.Windows.Forms.RichTextBox uiReportText;
+        private System.Windows.Forms.Button uiCopyReportBtn;
+        private System.Windows.Forms.TextBox uiTransportNameText;
+        private System.Windows.Forms.Label uiTransportName;
+        private System.Windows.Forms.TextBox uiCargoName;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.ColumnHeader columnHeader37;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.ComboBox uiDauComboBox;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox uiSectorsText;
+        private System.Windows.Forms.TextBox uiFuelBillDate;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.ComboBox uiLoadUnloadType;
     }
 }
 

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace MadCalc
@@ -77,6 +78,68 @@ namespace MadCalc
             _state.SaveState(this, _wheels, _drivers, _spareParts); 
         }
 
+        private void uiDauComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (uiDauComboBox.SelectedIndex)
+            {
+                case -1:
+                    uiSectorsText.Text = String.Empty;
+                    break;
+
+                case 0: // S.A. "Drumuri Balti"
+                    uiSectorsText.Text = "Sector Balti, Faleshti, Singerei";
+                    break;
+
+                case 1: // S.A. "Drumuri Cahul"
+                    uiSectorsText.Text = "Sector Cahul, Cantemir, Taraclia";
+                    break;
+
+                case 2: // S.A. "Drumuri Causheni"
+                    uiSectorsText.Text = "Sector Causheni, Cainari, Stefan Voda";
+                    break;
+
+                case 3: // S.A. "Drumuri Cimishlia"
+                    uiSectorsText.Text = "Sector Cimislia, Basarabeasca, Leova";
+                    break;
+
+                case 4: // S.A. "Drumuri Comrat"
+                    uiSectorsText.Text = "Sector Comrat, Ceadir-Lunga, Vulcaneshti";
+                    break;
+
+                case 5: // S.A. "Drumuri Criuleni"
+                    uiSectorsText.Text = "Sector Criuleni, Anenii Noi, Chisinau, Dubasari";
+                    break;
+
+                case 6: // S.A. "Drumuri Edineti"
+                    uiSectorsText.Text = "Sector Edineti, Dondiusheni, Ocnitsa";
+                    break;
+
+                case 7: // S.A. "Drumuri Briceni"
+                    uiSectorsText.Text = String.Empty;
+                    break;
+
+                case 8: // S.A. "Drumuri Ialoveni"
+                    uiSectorsText.Text = "Sector Ialoveni, Hincesti, Nisporeni";
+                    break;
+
+                case 9: // S.A. "Drumuri Orhei"
+                    uiSectorsText.Text = "Sector Orhei, Rezina,Teleneshti";
+                    break;
+
+                case 10: // S.A. "Drumuri Rishcani"
+                    uiSectorsText.Text = "Sector Rishcani, Drocia, Glodeni";
+                    break;
+
+                case 11: // S.A. "Drumuri Soroca"
+                    uiSectorsText.Text = "Sector Soroca, Floreshti, Sanatauca, Shaldoneshti";
+                    break;
+
+                case 12: // S.A. "Drumuri Strasheni"
+                    uiSectorsText.Text = "Sector Strasheni, Calarash, Ungheni";
+                    break;
+            }
+        }
+
         #region Transport UI Handlers
 
         private void uiComboBoxMechType_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,6 +169,7 @@ namespace MadCalc
             }
 
             UpdateTransportReport();
+            UpdateWheelsReport();
         }
 
         private void uiVelocityText_TextChanged(object sender, EventArgs e)
@@ -628,12 +692,14 @@ namespace MadCalc
                 var distance = course;
                 var numberOfTrips = CalcNumberOfTrips(distance, out var hours);
                 var totalLength = numberOfTrips * 2 * distance;
+                var totalCargo = numberOfTrips * ParseFloat(uiCargoCapacityText.Text);
 
                 var item = new ListViewItem(ToString(distance));
 
                 item.SubItems.Add(ToString(numberOfTrips));
                 item.SubItems.Add(ToString(totalLength));
                 item.SubItems.Add(ToString(hours));
+                item.SubItems.Add(ToString(totalCargo));
 
                 uiCourses.Items.Add(item);
             }
@@ -831,33 +897,6 @@ namespace MadCalc
             return (float)(length * 2 * tripCount / velocity + tripCount * ParseFloat(uiUnloadTime.Text));
         }
 
-        private void uiReportTestBtn_Click(object sender, EventArgs e)
-        {
-            var font1 = new Font("Arial", 10);
-            //var font2 = new Font("Arial", 20);
-
-            using (var doc = new PrintDocument())
-            using (var dialog = new PrintDialog())
-            {
-                if (dialog.ShowDialog() != DialogResult.OK)
-                {
-                    return;
-                }
-
-                doc.PrintPage += (printSender, printArgs) =>
-                {
-                    printArgs.Graphics.Clear(Color.White);
-
-                    for (var i=0; i < 100; ++i)
-                    {
-                        printArgs.Graphics.DrawString($"String #{i}", font1, Brushes.Black, new PointF(0, 12 * i));
-                    }
-                };
-
-                doc.Print();
-            }
-        }
-
         private float GetOilConsumptionPercent()
         {
             return ParseFloat(uiOilConsumptionPercent.Text.EndsWith("%") ? uiOilConsumptionPercent.Text.Substring(0, uiOilConsumptionPercent.Text.Length - 1) : uiOilConsumptionPercent.Text) * 0.01f;
@@ -945,10 +984,268 @@ namespace MadCalc
             return value.ToString("0.00");
         }
 
+        /*
+        private void PrintReport()
+        {
+            using (var doc = new PrintDocument())
+            using (var preview = new PrintPreviewDialog())
+            using (var dialog = new PrintDialog())
+            {
+                if (dialog.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                doc.PrintPage += OnPrintPage;
+                doc.Print();
+            }
+        }
+
+        private void OnPrintPage(object sender, PrintPageEventArgs args)
+        {
+            var font1 = new Font("Arial", 12);
+
+            args.Graphics.Clear(Color.White);
+
+            for (var i = 0; i < 100; ++i)
+            {
+                args.Graphics.DrawString($"String #{i}", font1, Brushes.Black, new PointF(0, 12 * i));
+            }
+        }
+        */
+
+        private void uiCreateReportBtn_Click(object sender, EventArgs e)
+        {
+            uiReportText.Clear();
+
+            CreateGeneralReport();
+            CreateCoursesReport();
+            CreateMachineReport();
+            CreateWheelsReport();
+            CreateDriverReport();
+            CreateCarCheckReport();
+            CreateSparePartsReport();
+            CreateAmmortizationReport();
+        }
+
+        private void uiCopyReportBtn_Click(object sender, EventArgs e)
+        {
+            uiReportText.SelectAll();
+            uiReportText.Copy();
+            uiReportText.DeselectAll();
+        }
+
+        private void CreateGeneralReport()
+        {
+            uiReportText.AppendText(Environment.NewLine);
+
+            uiReportText.SelectionFont = _reportFontBold;
+            uiReportText.SelectionColor = Color.Black;
+            uiReportText.SelectionIndent = 0;
+            uiReportText.AppendText($"Номер калькуляции: ___________________________ {Environment.NewLine}");
+
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"ДЭУ: {uiDauComboBox.Text} \t\t Сектор: {uiSectorsText.Text}\t\t Дата: {DateTime.Now.ToShortDateString()}{Environment.NewLine}");
+
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Наименование машины: {uiTransportNameText.Text}{Environment.NewLine}");
+            uiReportText.AppendText($"Тоннаж: {uiCargoCapacityText.Text}{Environment.NewLine}");
+            uiReportText.AppendText($"Колличество машин: {uiCarCountUd.Value}{Environment.NewLine}");
+            uiReportText.AppendText($"Наименование груза: {uiCargoName.Text}{Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+        }
+
+        private void CreateCoursesReport()
+        {
+            uiReportText.SelectionFont = _reportSectionFont;
+            uiReportText.SelectionColor = Color.Black;
+            uiReportText.SelectionIndent = 0;
+
+            uiReportText.AppendText($"1. Маршруты: {Environment.NewLine}{Environment.NewLine}");
+            uiReportText.AppendText($"Расстояние\t Число рейсов\t Общее расстояние\t Время в пути\t Общий тоннаж{Environment.NewLine}");
+
+            foreach (ListViewItem item in uiCourses.Items)
+            {
+                uiReportText.AppendText($"{item.SubItems[0].Text}\t\t {item.SubItems[1].Text}\t\t {item.SubItems[2].Text}\t\t\t {item.SubItems[3].Text}\t\t {item.SubItems[4].Text}{Environment.NewLine}");
+            }
+
+            uiReportText.AppendText(Environment.NewLine);
+        }
+
+        private void CreateMachineReport()
+        {
+            uiReportText.SelectionFont = _reportSectionFont;
+            uiReportText.SelectionColor = Color.Black;
+            uiReportText.SelectionIndent = 0;
+
+            uiReportText.AppendText($"2.1 Расходы на топливо: {Environment.NewLine}{Environment.NewLine}");
+            uiReportText.AppendText($"Потебление топлива (на 100км): {uiFuelConsumption100.Text} \t\tЗима: {uiWinter.Text}% \t\tВозраст: {uiAge.Text}% \t\tЦена (литр): {uiFuelPrice.Text} лей  ({uiFuelBillDate.Text}) {Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Расстояние\t Общее расстояние\t Расход топлива\t Стоимость топлива\t{Environment.NewLine}");
+
+            foreach (ListViewItem item in uiTransportListView.Items)
+            {
+                uiReportText.AppendText($"{item.SubItems[0].Text}\t\t {item.SubItems[2].Text}\t\t\t {item.SubItems[5].Text}\t\t\t {item.SubItems[7].Text}{Environment.NewLine}");
+            }
+
+            uiReportText.AppendText(Environment.NewLine);
+
+            uiReportText.SelectionFont = _reportSectionFont;
+            uiReportText.SelectionColor = Color.Black;
+            uiReportText.SelectionIndent = 0;
+
+            uiReportText.AppendText($"2.2 Расходы на смазку: {Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Расход смазки в процентах от топлива: {uiOilConsumptionPercent.Text}\t\tЦена (литр): {uiOilPrice.Text} лей ({uiFuelBillDate.Text}) {Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Расстояние\t Расход масла\t\t Стоимость масла{Environment.NewLine}");
+
+            foreach (ListViewItem item in uiTransportListView.Items)
+            {
+                uiReportText.AppendText($"{item.SubItems[0].Text}\t\t {item.SubItems[6].Text}\t\t\t {item.SubItems[8].Text}{Environment.NewLine}");
+            }
+
+            uiReportText.AppendText(Environment.NewLine);
+        }
+
+        private void CreateWheelsReport()
+        {
+            uiReportText.SelectionFont = _reportSectionFont;
+            uiReportText.SelectionColor = Color.Black;
+            uiReportText.SelectionIndent = 0;
+
+            uiReportText.AppendText($"3. Расходы на колеса: {Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Киллометраж колеса (км):{uiWheelKms.Text}{Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+
+            uiReportText.AppendText($"Колёса:{Environment.NewLine}");
+            uiReportText.AppendText($"Колличество\t Стоимость (1 шт)\t Дата{Environment.NewLine}");
+
+            foreach (DataGridViewRow row in uiWheelsGrid.Rows)
+            {
+                uiReportText.AppendText($"{row.Cells[0].Value}\t\t {row.Cells[1].Value}\t\t\t {row.Cells[2].Value}{Environment.NewLine}");
+            }
+
+            uiReportText.AppendText($"Расходы: {uiWheelsSpendingsText.Text} лей {Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Расстояние\t Общее расстояние\t Аммортизация колес{Environment.NewLine}");
+
+            foreach (ListViewItem item in uiWheelsListView.Items)
+            {
+                uiReportText.AppendText($"{item.SubItems[0].Text}\t\t {item.SubItems[2].Text}\t\t\t {item.SubItems[4].Text}{Environment.NewLine}");
+            }
+
+            uiReportText.AppendText(Environment.NewLine);
+        }
+
+        private void CreateDriverReport()
+        {
+            uiReportText.SelectionFont = _reportSectionFont;
+            uiReportText.SelectionColor = Color.Black;
+            uiReportText.SelectionIndent = 0;
+
+            uiReportText.AppendText($"4. Расходы на водителя: {Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Тариф: {uiDriverTarif.Text} \t\t\t");
+
+            uiReportText.AppendText($"Премия: {uiDriverPremiumAddText.Text}{Environment.NewLine}");
+
+            //uiReportText.AppendText($"Средний стаж: {uiDriverExpAverageText.Text} {Environment.NewLine}");
+            uiReportText.AppendText($"Средний класс: {uiDriverClassAverageText.Text} \t\tНадбавка за прицеп: {uiDriverTrailerAddText.Text} {Environment.NewLine}");
+            //uiReportText.AppendText($"Надбавка за прицеп: {uiDriverTrailerAddText.Text} {Environment.NewLine}");
+            uiReportText.AppendText($"Средний стаж: {uiDriverExpAverageText.Text}\t\tНадбавка за спец-оборудование: {uiDriverSpecialGearAdd.Text} {Environment.NewLine}");
+            //uiReportText.AppendText($"Премия: {uiDriverPremiumAddText.Text} {Environment.NewLine}");
+            uiReportText.AppendText($"Страховка: {uiDriverEnsuranceAddText.Text} \t\t\tДополнительный отпуск: {uiDriverHolydaysAddText.Text} {Environment.NewLine}");
+            //uiReportText.AppendText($"Дополнительный отпуск: {uiDriverHolydaysAddText.Text} {Environment.NewLine}");
+            //uiReportText.AppendText($"Зарплата в час: {uiDriverSalaryHourly.Text} {Environment.NewLine}");
+            
+            uiReportText.SelectionFont = _reportFontBold;
+            uiReportText.SelectionColor = Color.Black;
+            uiReportText.SelectionIndent = 0;
+            uiReportText.AppendText($"Зарплата в час: {uiDriverSalaryHourly.Text}\tВремя {uiUnloadTime.Text} часов ({uiLoadUnloadType.Text}) {Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+
+            uiReportText.AppendText($"Расстояние\t Число рейсов\t Общее расстояние\t Время в пути\t Зарплата{Environment.NewLine}");
+
+            foreach (ListViewItem item in uiDriverListView.Items)
+            {
+                uiReportText.AppendText($"{item.SubItems[0].Text}\t\t {item.SubItems[1].Text}\t\t {item.SubItems[2].Text}\t\t\t {item.SubItems[3].Text}\t\t {item.SubItems[4].Text}{Environment.NewLine}");
+            }
+
+            uiReportText.AppendText(Environment.NewLine);
+        }
+
+        private void CreateCarCheckReport()
+        {
+            uiReportText.SelectionFont = _reportSectionFont;
+            uiReportText.SelectionColor = Color.Black;
+            uiReportText.SelectionIndent = 0;
+
+            uiReportText.AppendText($"5. Расходы на техосмотр: {Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Тариф при ремонте: {uiCarCheckTarif.Text}{Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Расстояние\t Общее расстояние\t Время в пути\t\t CU\t\t CT\t\t RT\t\t Всего{Environment.NewLine}");
+
+            foreach (ListViewItem item in uiCarCheckListView.Items)
+            {
+                uiReportText.AppendText($"{item.SubItems[0].Text}\t\t {item.SubItems[1].Text}\t\t\t {item.SubItems[2].Text}\t\t\t {item.SubItems[3].Text}\t\t {item.SubItems[4].Text}\t\t {item.SubItems[5].Text}\t\t {item.SubItems[6].Text}{Environment.NewLine}");
+            }
+
+            uiReportText.AppendText(Environment.NewLine);
+        }
+
+        private void CreateSparePartsReport()
+        {
+            uiReportText.SelectionFont = _reportSectionFont;
+            uiReportText.SelectionColor = Color.Black;
+            uiReportText.SelectionIndent = 0;
+
+            var averageCost = ParseFloat(uiSparePartsAverage.Text) / ParseFloat(uiSparePartsYearlyRegime.Text);
+
+            uiReportText.AppendText($"6. Расходы на запасные части: {Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Средняя стоимость: {averageCost.ToString("0.00")} лей\t\tГодовой режим: {uiSparePartsYearlyRegime.Text} часы\\год {Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Расстояние\t Число рейсов\t Общее расстояние\t Время в пути\t Стоимость{Environment.NewLine}");
+
+            foreach (ListViewItem item in uiSparePartsListView.Items)
+            {
+                uiReportText.AppendText($"{item.SubItems[0].Text}\t\t {item.SubItems[1].Text}\t\t {item.SubItems[2].Text}\t\t\t {item.SubItems[3].Text}\t\t {item.SubItems[4].Text}{Environment.NewLine}");
+            }
+
+            uiReportText.AppendText(Environment.NewLine);
+        }
+
+        private void CreateAmmortizationReport()
+        {
+            uiReportText.SelectionFont = _reportSectionFont;
+            uiReportText.SelectionColor = Color.Black;
+            uiReportText.SelectionIndent = 0;
+
+            uiReportText.AppendText($"7. Аммортизация: {Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Аммортизация: {uiAmmortizationPerHour.Text} лей\\час{Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+            uiReportText.AppendText($"Расстояние\t Время в пути\t Аммортизация{Environment.NewLine}");
+
+            foreach (ListViewItem item in uiTransportListView.Items)
+            {
+                // 039
+                uiReportText.AppendText($"{item.SubItems[0].Text}\t\t {item.SubItems[3].Text}\t\t {item.SubItems[9].Text}{Environment.NewLine}");
+            }
+
+            uiReportText.AppendText(Environment.NewLine);
+        }
+
         private InputState _state;
         private BindingList<Wheel> _wheels = new BindingList<Wheel>() { AllowEdit = true, AllowNew = true };
         private BindingList<Driver> _drivers = new BindingList<Driver>() { AllowEdit = true, AllowNew = true };
         private BindingList<SpareParts> _spareParts = new BindingList<SpareParts>() { AllowEdit = true, AllowNew = true };
         private bool _loadingInputState = true;
+
+        private readonly Font _reportSectionFont = new Font("Microsoft Sans Serif", 12, FontStyle.Underline | FontStyle.Bold);
+        private readonly Font _reportFontBold = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
     }
 }
