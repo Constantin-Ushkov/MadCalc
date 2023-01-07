@@ -14,7 +14,7 @@ namespace MadCalc
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            /*
+            /**
             using (var loginForm = new LoginForm())
             {
                 if (loginForm.ShowDialog() != DialogResult.OK)
@@ -27,7 +27,7 @@ namespace MadCalc
                     return;
                 }
             }
-            */
+            /**/
 
             Application.Run(new MainForm());
         }
