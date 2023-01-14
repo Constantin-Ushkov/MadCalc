@@ -58,7 +58,7 @@
             // uiCoursesTb
             // 
             this.uiCoursesTb.Location = new System.Drawing.Point(13, 32);
-            this.uiCoursesTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiCoursesTb.Margin = new System.Windows.Forms.Padding(4);
             this.uiCoursesTb.Name = "uiCoursesTb";
             this.uiCoursesTb.Size = new System.Drawing.Size(351, 23);
             this.uiCoursesTb.TabIndex = 1;
@@ -95,12 +95,6 @@
             // 
             // uiFromUd
             // 
-            this.uiFromUd.DecimalPlaces = 2;
-            this.uiFromUd.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
             this.uiFromUd.Location = new System.Drawing.Point(42, 83);
             this.uiFromUd.Maximum = new decimal(new int[] {
             10000,
@@ -123,12 +117,6 @@
             // 
             // uiToUd
             // 
-            this.uiToUd.DecimalPlaces = 2;
-            this.uiToUd.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
             this.uiToUd.Location = new System.Drawing.Point(160, 83);
             this.uiToUd.Maximum = new decimal(new int[] {
             10000,
@@ -160,12 +148,6 @@
             // 
             // uiStepUd
             // 
-            this.uiStepUd.DecimalPlaces = 2;
-            this.uiStepUd.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
             this.uiStepUd.Location = new System.Drawing.Point(283, 83);
             this.uiStepUd.Maximum = new decimal(new int[] {
             10000,
@@ -207,6 +189,7 @@
             // 
             // uiCancelBtn
             // 
+            this.uiCancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.uiCancelBtn.Location = new System.Drawing.Point(282, 160);
             this.uiCancelBtn.Name = "uiCancelBtn";
             this.uiCancelBtn.Size = new System.Drawing.Size(90, 23);
@@ -235,7 +218,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddCoursesDialog";

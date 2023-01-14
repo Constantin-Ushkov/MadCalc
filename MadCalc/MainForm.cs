@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -22,6 +23,7 @@ namespace MadCalc
             uiComboBoxMechType.Items.AddRange(new object[] { "Автомобиль", "Трактор" });
 
             uiComboBoxMechType.SelectedIndex = 0;
+            uiCargoClassDropDown.SelectedIndex = 0;
 
             uiWheelsGrid.DataSource = _wheels;
             _wheels.ListChanged += OnWheelsListChanged;
@@ -31,6 +33,8 @@ namespace MadCalc
 
             uiSparePartsGrid.DataSource = _spareParts;
             _spareParts.ListChanged += OnSparePartsListChanged;
+
+            LoadCargoTarifs();
 
             _state = InputState.TryLoadState(this);
 
@@ -57,6 +61,37 @@ namespace MadCalc
             _loadingInputState = false;
 
             uiOilConsumtionTotal.Text = ToString(ParseFloat(uiFuelConsumption100.Text) * GetOilConsumptionPercent());
+        }
+
+        private void LoadCargoTarifs()
+        {
+            foreach (var tarif in _tarifs)
+            {
+                uiCargoTarifCombo.Items.Add(tarif.Name);
+            }
+
+            uiCargoTarifCombo.SelectedIndex = 0;
+        }
+
+        private void uiCargoTarifCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedTarif = _tarifs[uiCargoTarifCombo.SelectedIndex];
+
+            uiCargoTarifListView.Items.Clear();
+
+            foreach (var entry in _selectedTarif.Tarifs)
+            {
+                var item = new ListViewItem(entry.Key.ToString());
+
+                item.SubItems.Add(ToString(entry.Value[0]));
+                item.SubItems.Add(ToString(entry.Value[1]));
+                item.SubItems.Add(ToString(entry.Value[2]));
+                item.SubItems.Add(ToString(entry.Value[3]));
+
+                uiCargoTarifListView.Items.Add(item);
+            }
+
+            uiCargoTarifFormulaLabel.Text = _selectedTarif.Formula;
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -157,6 +192,7 @@ namespace MadCalc
             uiTrailerCapacity.Enabled = uiTrailerCb.Checked;
             uiTrailerWeight.Enabled = uiTrailerCb.Checked;
 
+            UpdateCoursesReport();
             UpdateTransportReport();
             UpdateTotalReport();
         }
@@ -168,6 +204,7 @@ namespace MadCalc
                 return;
             }
 
+            UpdateCoursesReport();
             UpdateTransportReport();
             UpdateTotalReport();
         }
@@ -179,6 +216,7 @@ namespace MadCalc
                 return;
             }
 
+            UpdateCoursesReport();
             UpdateTransportReport();
             UpdateTotalReport();
         }
@@ -190,6 +228,7 @@ namespace MadCalc
                 return;
             }
 
+            UpdateCoursesReport();
             UpdateTransportReport();
             UpdateWheelsReport();
             UpdateTotalReport();
@@ -202,6 +241,7 @@ namespace MadCalc
                 return;
             }
 
+            UpdateCoursesReport();
             UpdateTransportReport();
             UpdateTotalReport();
         }
@@ -213,6 +253,7 @@ namespace MadCalc
                 return;
             }
 
+            UpdateCoursesReport();
             UpdateTransportReport();
             UpdateTotalReport();
         }
@@ -224,6 +265,7 @@ namespace MadCalc
                 return;
             }
 
+            UpdateCoursesReport();
             UpdateTransportReport();
             UpdateTotalReport();
         }
@@ -390,6 +432,11 @@ namespace MadCalc
             uiWheelsSpendingsText.Text = ToString(GetWheelsTotalCost());
         }
 
+        private void uiRecalcWheelsBtn_Click(object sender, EventArgs e)
+        {
+            uiWheelsSpendingsText.Text = ToString(GetWheelsTotalCost());
+        }
+
         private void uiDeleteWheelsBtn_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in uiWheelsGrid.SelectedRows)
@@ -431,6 +478,12 @@ namespace MadCalc
                 return;
             }
 
+            UpdateDriverReport();
+            UpdateTotalReport();
+        }
+
+        private void uiDriverRecalcBtn_Click(object sender, EventArgs e)
+        {
             UpdateDriverReport();
             UpdateTotalReport();
         }
@@ -654,6 +707,16 @@ namespace MadCalc
                 return;
             }
 
+            UpdateSparePartsAverage();
+        }
+
+        private void uiSparePartsReportBtn_Click(object sender, EventArgs e)
+        {
+            UpdateSparePartsAverage();
+        }
+
+        private void UpdateSparePartsAverage()
+        {
             var averge = 0f;
 
             foreach (var sparePart in _spareParts)
@@ -734,7 +797,7 @@ namespace MadCalc
 
                 var item = new ListViewItem(ToString(distance));
 
-                item.SubItems.Add(ToString(numberOfTrips));
+                item.SubItems.Add(numberOfTrips.ToString());
                 item.SubItems.Add(ToString(totalLength));
                 item.SubItems.Add(ToString(hours));
                 item.SubItems.Add(ToString(totalCargo));
@@ -762,7 +825,7 @@ namespace MadCalc
                     totalFuel += totalFuel * fuelFactor;
                 }
 
-                var totalOil = totalFuel * ParseFloat(uiOilConsumtionTotal.Text);
+                var totalOil = totalFuel * GetOilConsumptionPercent();
                 var totalFuelPrice = totalFuel * ParseFloat(uiFuelPrice.Text);
                 var totalOilPrice = totalOil * ParseFloat(uiOilPrice.Text);
                 var carAmmortization = hours * ParseFloat(uiAmmortizationPerHour.Text);
@@ -982,6 +1045,7 @@ namespace MadCalc
 
         private int CalcNumberOfTrips(int length, out float hours)
         {
+            /*
             var count = 0;
             var time = 0f;
 
@@ -1000,6 +1064,36 @@ namespace MadCalc
             while (time <= 8.05f);
 
             return count;
+            */
+
+            /*
+            var tripCount = 1;
+            var finalTripCount = 1;
+
+            hours = 1;
+
+            while (GetTripTime(length, tripCount) <= 8.05f)
+            {
+                hours = GetTripTime(length, tripCount);
+                finalTripCount = tripCount;
+
+                tripCount++;
+            }
+
+            return finalTripCount;
+            */
+
+            var tripCount = 1;
+
+            hours = GetTripTime(length, tripCount);
+
+            while (GetTripTime(length, tripCount + 1) <= 8.05f)
+            {
+                tripCount++;
+                hours = GetTripTime(length, tripCount);
+            }
+
+            return tripCount;
         }
 
         private float GetTripTime(float length, int tripCount)
@@ -1175,7 +1269,7 @@ namespace MadCalc
 
             uiReportText.AppendText(Environment.NewLine);
             uiReportText.AppendText($"Denumirea mehanizmelor: {uiTransportNameText.Text}{Environment.NewLine}");
-            uiReportText.AppendText($"Capacitate de încărcare: {uiCargoCapacityText.Text}");
+            uiReportText.AppendText($"Capacitate de încărcare: {uiCargoCapacityText.Text} tn");
 
             if (uiTrailerCb.Checked)
             {
@@ -1186,7 +1280,7 @@ namespace MadCalc
                 uiReportText.AppendText(Environment.NewLine);
             }
 
-            uiReportText.AppendText($"Numerul mehanizmelor: {uiCarCountUd.Value}{Environment.NewLine}");
+            uiReportText.AppendText($"Numerul mehanizmelor: {uiCarCountUd.Value} buc{Environment.NewLine}");
             uiReportText.AppendText($"Nume materialelor: {uiCargoName.Text}{Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
         }
@@ -1199,12 +1293,23 @@ namespace MadCalc
 
             uiReportText.AppendText($"1. Marșruturi: {Environment.NewLine}{Environment.NewLine}");
 
+            uiReportText.SelectionFont = _reportFontBold;
+            uiReportText.SelectionColor = Color.Black;
+            uiReportText.SelectionIndent = 0;
+            uiReportText.AppendText($"Viteza medie a autovehicolului: {uiVelocityText.Text} km/ore{Environment.NewLine}");
+
+            uiReportText.SelectionFont = _reportFontBold;
+            uiReportText.SelectionColor = Color.Black;
+            uiReportText.SelectionIndent = 0;
+            uiReportText.AppendText($"Timpul: {uiUnloadTime.Text} ore ({uiLoadUnloadType.Text}) {Environment.NewLine}");
+            uiReportText.AppendText(Environment.NewLine);
+
             uiReportText.SelectionFont = _reportFontMono;
             uiReportText.SelectionColor = Color.Black;
             uiReportText.SelectionIndent = 0;
 
             //uiReportText.AppendText($"Distanța parcursă\t Numerul curselor\t Cursă totală\t Timpul parcursul\t Tonajul transporturilor{Environment.NewLine}");
-            uiReportText.AppendText(string.Format("{0,-20}{1,-20}{2,-20}{3,-20}{4,-20}{5}", "Distanța parcursă", "Numerul curselor", "Cursă totală", "Timpul parcursul", "Tonajul transporturilor", Environment.NewLine));
+            uiReportText.AppendText(string.Format("{0,-20}{1,-20}{2,-20}{3,-20}{4,-20}{5}", "Dist-ța parc-să,km", "Numerul curselor", "Cursă totală,km", "Timpul parc-ul,ori", "Tonaj total,tn", Environment.NewLine));
 
             foreach (ListViewItem item in uiCourses.Items)
             {
@@ -1226,10 +1331,10 @@ namespace MadCalc
             uiReportText.SelectionIndent = 0;
 
             uiReportText.AppendText($"2.1 Carburanța: {Environment.NewLine}{Environment.NewLine}");
-            uiReportText.AppendText($"Carburanța ( 100км ): {uiFuelConsumption100.Text} \t\tIarna: {uiWinter.Text}% \t\tVîrsta: {uiAge.Text}% \t\tPreți (litr): {uiFuelPrice.Text} lei  ({uiFuelBillDate.Text}) {Environment.NewLine}");
+            uiReportText.AppendText($"Carburanța ( 100км ): {uiFuelConsumption100.Text} litr \t\tIarna: {uiWinter.Text}% \t\tVîrsta: {uiAge.Text}% \t\tPreți (litr): {uiFuelPrice.Text} lei  ({uiFuelBillDate.Text}) {Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
             //uiReportText.AppendText($"Distanța parcursă\t Cursă totală\t Consumul combustibel\t Prețul motorină\t{Environment.NewLine}");
-            uiReportText.AppendText(string.Format("{0,-24}{1,-24}{2,-24}{3}", "Cursă totală", "Consumul combustibel", "Prețul motorină", Environment.NewLine));
+            uiReportText.AppendText(string.Format("{0,-24}{1,-24}{2,-24}{3}", "Cursă totală,km", "Consumul comb-bel,litr", "Total 2.1,lei", Environment.NewLine));
 
             foreach (ListViewItem item in uiTransportListView.Items)
             {
@@ -1248,7 +1353,7 @@ namespace MadCalc
             uiReportText.AppendText($"Consumul lubrifianți în % din combustibel: {uiOilConsumptionPercent.Text}\tPreți (litr): {uiOilPrice.Text} lei ({uiFuelBillDate.Text}) {Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
             //uiReportText.AppendText($"Distanța parcursă\t Consumul lubrifianți\t Prețul lubrifianți{Environment.NewLine}");
-            uiReportText.AppendText(string.Format("{0,-24}{1,-24}{2,-24}{3}", "Distanța parcursă", "Consumul lubrifianți", "Prețul lubrifianți", Environment.NewLine));
+            uiReportText.AppendText(string.Format("{0,-24}{1,-24}{2,-24}{3}", "Dist-ța parc-să,km", "Consumul lubr-ți,litr", "Total 2.2,lei", Environment.NewLine));
 
             foreach (ListViewItem item in uiTransportListView.Items)
             {
@@ -1267,12 +1372,12 @@ namespace MadCalc
 
             uiReportText.AppendText($"3. Consumul de cauciucurilor: {Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
-            uiReportText.AppendText($"Parcurs anvelopelor (км):{uiWheelKms.Text}{Environment.NewLine}");
+            uiReportText.AppendText($"Parcurs anvelopelor (км):{uiWheelKms.Text} km{Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
 
             uiReportText.AppendText($"Anvelopelor:{Environment.NewLine}");
             //uiReportText.AppendText($"Număr\t Prețuri (1 buc)\t Data instalarea{Environment.NewLine}");
-            uiReportText.AppendText(string.Format("{0,-24}{1,-24}{2,-24}{3}", "Număr", "Prețuri (1 buc)", "Data instalarea", Environment.NewLine));
+            uiReportText.AppendText(string.Format("{0,-24}{1,-24}{2,-24}{3}", "Număr, buc", "Prețuri (1 buc)", "Data instalarea", Environment.NewLine));
 
             foreach (DataGridViewRow row in uiWheelsGrid.Rows)
             {
@@ -1283,7 +1388,7 @@ namespace MadCalc
             uiReportText.AppendText($"Consumuri: {uiWheelsSpendingsText.Text} lei {Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
             //uiReportText.AppendText($"Distanța parcurs\t Cursă totală\t Amortizarea anvelop.{Environment.NewLine}");
-            uiReportText.AppendText(string.Format("{0,-24}{1,-24}{2,-24}{3}", "Distanța parcurs", "Cursă totală", "Amortizarea anvelop.", Environment.NewLine));
+            uiReportText.AppendText(string.Format("{0,-24}{1,-24}{2,-24}{3}", "Dist-ța parc-s,km", "Cursă totală,km", "Total 3,lei", Environment.NewLine));
 
             foreach (ListViewItem item in uiWheelsListView.Items)
             {
@@ -1302,21 +1407,21 @@ namespace MadCalc
 
             uiReportText.AppendText($"4. Salariul mecanic: {Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
-            uiReportText.AppendText($"Tarif: {uiDriverTarif.Text} \t\t\t\t\t");
-            uiReportText.AppendText($"Premia: {uiDriverPremiumAddText.Text}{Environment.NewLine}");
+            uiReportText.AppendText($"Tarif: {uiDriverTarif.Text} lei/ore\t\t\t\t");
+            uiReportText.AppendText($"Premia: {uiDriverPremiumAddText.Text} %{Environment.NewLine}");
 
-            uiReportText.AppendText($"mediu adaos pentru clasa: {uiDriverClassAverageText.Text} \t\tadaos pentru remorca: {uiDriverTrailerAddText.Text} {Environment.NewLine}");
-            uiReportText.AppendText($"mediu vechime în muncă: {uiDriverExpAverageText.Text}\t\tadaos pentru special: {uiDriverSpecialGearAdd.Text} {Environment.NewLine}");
-            uiReportText.AppendText($"asigurarea socială: {uiDriverEnsuranceAddText.Text} \t\t\tconcediu suplimentar: {uiDriverHolydaysAddText.Text} {Environment.NewLine}");
-            
+            uiReportText.AppendText($"mediu adaos pentru clasa: {uiDriverClassAverageText.Text} %\t\tadaos pentru remorca: {uiDriverTrailerAddText.Text} % {Environment.NewLine}");
+            uiReportText.AppendText($"mediu vechime în muncă: {uiDriverExpAverageText.Text} %\t\tadaos pentru special: {uiDriverSpecialGearAdd.Text} % {Environment.NewLine}");
+            uiReportText.AppendText($"asigurarea socială: {uiDriverEnsuranceAddText.Text} % \t\t\tconcediu suplimentar: {uiDriverHolydaysAddText.Text} % {Environment.NewLine}");
+
             uiReportText.SelectionFont = _reportFontBold;
             uiReportText.SelectionColor = Color.Black;
             uiReportText.SelectionIndent = 0;
-            uiReportText.AppendText($"Salariul în ora: {uiDriverSalaryHourly.Text}\tTimpul {uiUnloadTime.Text} ore ({uiLoadUnloadType.Text}) {Environment.NewLine}");
+            uiReportText.AppendText($"Salariul în ora: {uiDriverSalaryHourly.Text} lei/ore{Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
 
             //uiReportText.AppendText($"Distanța parcursă\t Numerul curselor\t Cursa totală\t Timpul parcursul\t Salariu{Environment.NewLine}");
-            uiReportText.AppendText(string.Format("{0,-20}{1,-20}{2,-20}{3,-20}{4,-20}{5}", "Distanța parcurs", "Numerul curselor", "Cursa totală", "Timpul parcursul", "Salariu", Environment.NewLine));
+            uiReportText.AppendText(string.Format("{0,-20}{1,-20}{2,-20}{3,-20}{4,-20}{5}", "Dist-ța parc-s,km", "Numerul curselor", "Cursa totală,km", "Timpul parc-ul,ori", "Total 4,lei", Environment.NewLine));
 
             foreach (ListViewItem item in uiDriverListView.Items)
             {
@@ -1335,10 +1440,10 @@ namespace MadCalc
 
             uiReportText.AppendText($"5. Cheltuili pentru CT și RT: {Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
-            uiReportText.AppendText($"Tarif de reparație: {uiCarCheckTarif.Text}{Environment.NewLine}");
+            uiReportText.AppendText($"Tarif de reparație: {uiCarCheckTarif.Text} lei/ore{Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
             //uiReportText.AppendText($"Distanța parcursă\t Cursa totală\t Timpul parcurs\t\t CU\t\t CT\t\t RT\t\t Total{Environment.NewLine}");
-            uiReportText.AppendText(string.Format("{0,-20}{1,-17}{2,-17}{3,-10}{4,-10}{5,-10}{6,-10}{7}", "Distanța parcurs", "Cursa totală", "Timpul parcurs", "CU", "CT", "RT", "Total", Environment.NewLine));
+            uiReportText.AppendText(string.Format("{0,-20}{1,-17}{2,-17}{3,-10}{4,-10}{5,-10}{6,-10}{7}", "Dist-ța parc-s,km", "Cursa totală,km", "Timpul parc-s,ori", "CU", "CT", "RT", "Total 5,lei", Environment.NewLine));
 
             foreach (ListViewItem item in uiCarCheckListView.Items)
             {
@@ -1359,10 +1464,10 @@ namespace MadCalc
 
             uiReportText.AppendText($"6. Cheltuieli pentru piese de schimb: {Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
-            uiReportText.AppendText($"mediu cheltuieli piese de schimb: {averageCost.ToString("0.00")} lei\t\tRegim anual: {uiSparePartsYearlyRegime.Text} ore\\anul {Environment.NewLine}");
+            uiReportText.AppendText($"mediu cheltuieli piese de schimb: {averageCost.ToString("0.00")} lei\t\tRegim anual: {uiSparePartsYearlyRegime.Text} ori\\anul {Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
             //uiReportText.AppendText($"Distanța parcursă\t Numerul curselor\t Cursa totală\t Timpul parcurs\t Preți{Environment.NewLine}");
-            uiReportText.AppendText(string.Format("{0,-20}{1,-20}{2,-20}{3,-20}{4,-20}{5}", "Distanța parcurs", "Numerul curselor", "Cursa totală", "Timpul parcursul", "Preți", Environment.NewLine));
+            uiReportText.AppendText(string.Format("{0,-20}{1,-20}{2,-20}{3,-20}{4,-20}{5}", "Dist-ța parc-s,km", "Numerul curselor", "Cursa totală,km", "Timpul parc-ul,ori", "Total 6,lei", Environment.NewLine));
 
             foreach (ListViewItem item in uiSparePartsListView.Items)
             {
@@ -1384,7 +1489,7 @@ namespace MadCalc
             uiReportText.AppendText($"Amortizarea: {uiAmmortizationPerHour.Text} lei\\ore{Environment.NewLine}");
             uiReportText.AppendText(Environment.NewLine);
             //uiReportText.AppendText($"Distanța parcursă\t Timpul parcurs\t Amortizarea{Environment.NewLine}");
-            uiReportText.AppendText(string.Format("{0,-20}{1,-20}{2,-20}{3}", "Distanța parcurs", "Timpul parcursul", "Amortizarea", Environment.NewLine));
+            uiReportText.AppendText(string.Format("{0,-20}{1,-20}{2,-20}{3}", "Dist-ța parc-s,km", "Timpul parc-ul,ori", "Total 7,lei", Environment.NewLine));
 
             foreach (ListViewItem item in uiTransportListView.Items)
             {
@@ -1429,17 +1534,19 @@ namespace MadCalc
             uiReportText.SelectionFont = _reportFontMonoBold;
             uiReportText.SelectionColor = Color.Black;
             uiReportText.SelectionIndent = 0;
-            uiReportText.AppendText(string.Format("{0,-10}", "Dist-ța"));
+            uiReportText.AppendText(string.Format("{0,-10}", "Dist.(km)"));
 
             uiReportText.SelectionFont = _reportFontMono;
             uiReportText.SelectionColor = Color.Black;
             uiReportText.SelectionIndent = 0;
-            uiReportText.AppendText(string.Format("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}{6,-10}{7,-10}", "Carbu-ți", "Lubr-ți", "Anvelop.", "Salariu", "CT și RT", "Piese", "Amort-ția", "Ton. tot."));
+            uiReportText.AppendText(string.Format("{0,-13}{1,-13}{2,-13}{3,-13}{4,-13}{5,-13}{6,-13}{7,-13}", "Tot.2.1(lei)", "Tot.2.2(lei)", "Tot.3(lei)", "Tot.4(lei)", "Tot.5(lei)", "Tot.6(lei)", "Tot.7(lei)", "Ton.tot(ton)"));
 
             uiReportText.SelectionFont = _reportFontMonoBold;
             uiReportText.SelectionColor = Color.Black;
             uiReportText.SelectionIndent = 0;
-            uiReportText.AppendText(string.Format("{0,-10}{1}", "Costul 1tn", Environment.NewLine));
+            uiReportText.AppendText(string.Format("{0,-15}", "Cost.1tn(lei)"));
+
+            uiReportText.AppendText(string.Format("{0,-15}{1}", "Cofic.", Environment.NewLine));
 
             foreach (ListViewItem item in uiTotalListView.Items)
             {
@@ -1459,15 +1566,60 @@ namespace MadCalc
                 uiReportText.SelectionFont = _reportFontMono;
                 uiReportText.SelectionColor = Color.Black;
                 uiReportText.SelectionIndent = 0;
-                uiReportText.AppendText(string.Format("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}{6,-10}{7,-10}", item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text, item.SubItems[4].Text, item.SubItems[5].Text, item.SubItems[6].Text, item.SubItems[7].Text, item.SubItems[8].Text));
+                uiReportText.AppendText(string.Format("{0,-13}{1,-13}{2,-13}{3,-13}{4,-13}{5,-13}{6,-13}{7,-13}", item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text, item.SubItems[4].Text, item.SubItems[5].Text, item.SubItems[6].Text, item.SubItems[7].Text, item.SubItems[8].Text));
 
                 uiReportText.SelectionFont = _reportFontMonoBold;
                 uiReportText.SelectionColor = Color.Black;
                 uiReportText.SelectionIndent = 0;
-                uiReportText.AppendText(string.Format("{0,-10}{1}", item.SubItems[9].Text, Environment.NewLine));
+                uiReportText.AppendText(string.Format("{0,-13}", item.SubItems[9].Text));
+
+                // coeff
+                var tonCost = ParseFloat(item.SubItems[9].Text);
+                var distanceKm = ParseFloat(item.SubItems[0].Text);
+                var factor = CalcCargoFactor(tonCost, distanceKm);
+
+                uiReportText.AppendText(string.Format("{0,-13}", factor));
             }
 
             uiReportText.AppendText(Environment.NewLine);
+        }
+
+        private float CalcCargoFactor(float tonCost, float kms)
+        {
+            var cargoClass = int.Parse(uiCargoClassDropDown.Text);
+            var tarif = GetCargoTarif(cargoClass, kms);
+            var transportFactor = GetTransportTypeCargoFactor();
+
+            // 1. select cargo class
+            // 2. class\killometraj = tarif
+            // 3. tractor (1.15)\car (1.42)
+            // ton_cost / (1.15|1.42) / tarif
+
+            return tonCost / transportFactor / tarif;
+        }
+
+        private float GetCargoTarif(int @class, float kms)
+        {
+            switch (@class)
+            {
+                case 1: return 3.48f;
+                case 2: return 4.35f;
+                case 3: return 5.22f;
+                case 4: return 7.31f;
+            }
+
+            return 0f;
+        }
+
+        private float GetTransportTypeCargoFactor()
+        {
+            switch (uiComboBoxMechType.SelectedIndex)
+            {
+                case 0: return 1.42f;
+                case 1: return 1.15f;
+            }
+
+            return 1;
         }
 
         private InputState _state;
@@ -1480,5 +1632,39 @@ namespace MadCalc
         private readonly Font _reportFontBold = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
         private readonly Font _reportFontMono = new Font("Consolas", 10, FontStyle.Regular);
         private readonly Font _reportFontMonoBold = new Font("Consolas", 10, FontStyle.Bold);
+
+        private readonly CargoTarif[] _tarifs = new[]
+        {
+            new CargoTarif()
+            {
+                Name = "Tractors",
+                Tarifs = new Dictionary<int, float[]>
+                {
+                    { 1, new [] { 0.64f, 0.80f, 1.07f, 1.28f} },
+                    { 25, new [] { 4.96f, 6.20f, 8.28f, 9.92f} },
+                },
+                Formula = "(km - 25) * 0.18 + tarif(25km)",
+                Calculus = (distance, @class, tarifs) =>
+                {
+                    return (distance - 25) * 0.18f + tarifs[25][@class];
+                }
+            },
+            new CargoTarif()
+            {
+                Name = "Test Tarif",
+                Tarifs = new Dictionary<int, float[]>
+                {
+                    { 1, new [] { 10.64f, 10.80f, 11.07f, 11.28f} },
+                    { 25, new [] { 4.96f, 6.20f, 8.28f, 9.92f} },
+                },
+                Formula = "(km - 20) * 0.18 + tarif(20km)",
+                Calculus = (distance, @class, tarifs) =>
+                {
+                    return (distance - 25) * 0.18f + tarifs[25][@class];
+                }
+            }
+        };
+
+        private CargoTarif _selectedTarif;
     }
 }
